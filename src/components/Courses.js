@@ -1,106 +1,452 @@
-import React from 'react';
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+
+const platforms = [
+  {
+    name: 'Almentor',
+    coursesCount: 4,
+    logo: require('../assets/images/main Courses/almentor.png'),
+    description: '4 Courses',
+    link: '/full-courses?platform=mentor'
+  },
+  {
+    name: 'Yanfaa',
+    coursesCount: 12,
+    logo: require('../assets/images/main Courses/Yanfaa.jpeg'),
+    description: '12 Courses',
+    link: '/full-courses?platform=yanfaa'
+  },
+  {
+    name: 'Career 180',
+    coursesCount: 2,
+    logo: require('../assets/images/main Courses/Career180.jpg'),
+    description: '2 Courses',
+    link: '/full-courses?platform=career'
+  },
+  {
+    name: 'EYouth',
+    coursesCount: 2,
+    logo: require('../assets/images/main Courses/eyouth.png'),
+    description: '2 Courses',
+    link: '/full-courses?platform=eyouth'
+  },
+  {
+    name: 'Udemy',
+    coursesCount: 3,
+    logo: require('../assets/images/main Courses/udemy.png'),
+    description: '3 Courses',
+    link: '/full-courses?platform=udemy'
+  }
+];
 
 const Courses = () => {
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: -420, behavior: 'smooth' });
+    }
+  };
+
+  const scrollRight = () => {
+    if (scrollRef.current) {
+      scrollRef.current.scrollBy({ left: 420, behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section id="courses" className="py-5 bg-light">
-      <div className="container">
-        <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold mb-4" style={{color: '#495057'}}>My Online Courses</h2>
-          <p className="lead text-muted">Explore my comprehensive training programs designed to empower individuals with essential financial and professional skills</p>
+    <section id="courses" className="py-5" style={{
+      background: 'linear-gradient(45deg, #0b1a61 0%, #1f2a89 35%, #d89a2d 100%)',
+      minHeight: '100vh',
+      position: 'relative',
+      overflow: 'hidden'
+    }}>
+      {/* Background decoration */}
+      <div style={{
+        position: 'absolute',
+        top: '5%',
+        right: '-10%',
+        width: '250px',
+        height: '250px',
+        background: 'linear-gradient(45deg, rgba(216,154,45,0.2), rgba(216,154,45,0.1))',
+        borderRadius: '50%',
+        filter: 'blur(3px)'
+      }}></div>
+      <div style={{
+        position: 'absolute',
+        bottom: '10%',
+        left: '-8%',
+        width: '350px',
+        height: '350px',
+        background: 'linear-gradient(45deg, rgba(216,154,45,0.15), rgba(216,154,45,0.08))',
+        borderRadius: '50%',
+        filter: 'blur(5px)'
+      }}></div>
+      {/* Horizontal Divider */}
+      <div className="container position-relative">
+        <div className="row">
+          <div className="col-12">
+            <hr className="my-5" style={{
+              border: 'none',
+              height: '2px',
+              background: 'linear-gradient(90deg, transparent, #FFD700, transparent)',
+              margin: '60px 0'
+            }} />
+          </div>
         </div>
-        
-        <div className="row g-4">
-          <div className="col-lg-4 col-md-6">
-            <div className="card h-100 shadow-sm border-0">
-              <div className="card-body d-flex flex-column">
-                <div className="text-center mb-3">
-                  <img 
-                    src="/src/assets/images/courses/banking-course.jpg" 
-                    alt="Banking for Non-bankers" 
-                    className="rounded mx-auto d-block mb-2"
-                    style={{width: '80px', height: '80px', objectFit: 'cover'}}
-                  />
-                </div>
-                <h5 className="card-title text-center mb-3 fw-bold" style={{color: '#495057'}}>Banking for Non-bankers</h5>
-                <p className="card-text flex-grow-1 text-muted">
-                  Comprehensive course designed for professionals from all backgrounds to understand banking operations, financial products, and services in simple terms.
-                </p>
-                <div className="text-center mt-auto">
-                  <a 
-                    href="https://www.almentor.net/courses/Banking-for-Non-Bankers" 
-                    className="btn btn-outline-secondary w-100"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={{borderColor: '#6c757d', color: '#495057'}}
+      </div>
+
+      <div className="container position-relative">
+        <div className="row">
+          <div className="col-12 text-center mb-5">
+            <h2 className="display-4 fw-bold mb-3" style={{
+              color: '#FFFFFF',
+              textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+            }}>
+              My Courses
+            </h2>
+            <p className="lead text-light mb-0" style={{ fontSize: '1.2em', color: 'rgba(255,255,255,0.9)' }}>
+              Explore my training programs across leading platforms
+            </p>
+          </div>
+        </div>
+
+        <div className="row">
+          <div className="col-12">
+            <div className="position-relative">
+              {/* Scroll Arrows */}
+              <button
+                className="scroll-arrow left-arrow d-none d-lg-block"
+                onClick={scrollLeft}
+                aria-label="Scroll left"
+                style={{
+                  position: 'absolute',
+                  left: '-80px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  zIndex: 10,
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '50%',
+                  border: 'none',
+                  background: 'rgba(255, 215, 0, 0.9)',
+                  boxShadow: '0 4px 12px rgba(255,215,0,0.3)',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: '#000080',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(255, 165, 0, 1)';
+                  e.target.style.transform = 'translateY(-50%) scale(1.1)';
+                  e.target.style.boxShadow = '0 6px 20px rgba(255,215,0,0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(255, 215, 0, 0.9)';
+                  e.target.style.transform = 'translateY(-50%) scale(1)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(255,215,0,0.3)';
+                }}
+              >
+                ‹
+              </button>
+
+              <div
+                ref={scrollRef}
+                className="platform-scroll-container"
+                style={{
+                  display: 'flex',
+                  overflowX: 'auto',
+                  gap: '40px',
+                  padding: '30px 0',
+                  scrollSnapType: 'x mandatory',
+                  scrollbarWidth: 'none',
+                  msOverflowStyle: 'none',
+                  WebkitOverflowScrolling: 'touch',
+                  scrollBehavior: 'smooth'
+                }}
+                role="region"
+                aria-label="Platform courses carousel"
+              >
+                {platforms.map((platform, index) => (
+                  <div
+                    key={index}
+                    className="platform-card flex-shrink-0 text-center"
+                    style={{
+                      scrollSnapAlign: 'start',
+                      minWidth: '380px',
+                      maxWidth: '400px',
+                      height: '500px',
+                      background: 'rgba(255, 255, 255, 0.95)',
+                      backdropFilter: 'blur(15px)',
+                      borderRadius: '25px',
+                      border: '2px solid rgba(255, 215, 0, 0.2)',
+                      overflow: 'hidden',
+                      transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
+                      cursor: 'pointer',
+                      position: 'relative',
+                      boxShadow: '0 15px 45px rgba(0,0,0,0.1)',
+                      display: 'flex',
+                      flexDirection: 'column'
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-10px) scale(1.03)';
+                      e.currentTarget.style.boxShadow = '0 25px 60px rgba(0,0,0,0.2)';
+                      e.currentTarget.style.borderColor = 'rgba(255, 215, 0, 0.6)';
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                      e.currentTarget.style.boxShadow = '0 15px 45px rgba(0,0,0,0.1)';
+                      e.currentTarget.style.borderColor = 'rgba(255, 215, 0, 0.2)';
+                    }}
+                    role="button"
+                    tabIndex={0}
+                    onKeyDown={(e) => {
+                      if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        window.location.href = platform.link;
+                      }
+                    }}
+                    aria-label={`View ${platform.name} courses`}
                   >
-                    <i className="bi bi-box-arrow-up-right me-2"></i>
-                    View Course
-                  </a>
-                </div>
+                    {/* Platform Image */}
+                    <div className="platform-image-container" style={{
+                      width: '100%',
+                      height: '280px',
+                      overflow: 'hidden',
+                      borderRadius: '20px 20px 0 0',
+                      position: 'relative'
+                    }}>
+                      <img
+                        src={platform.logo}
+                        alt={`${platform.name} logo`}
+                        style={{
+                          width: '100%',
+                          height: '100%',
+                          objectFit: 'cover',
+                          objectPosition: 'center',
+                          transition: 'all 0.4s ease'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.transform = 'scale(1.05)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.transform = 'scale(1)';
+                        }}
+                      />
+                      {/* Gradient Overlay */}
+                      <div style={{
+                        position: 'absolute',
+                        bottom: 0,
+                        left: 0,
+                        right: 0,
+                        height: '80px',
+                        background: 'linear-gradient(transparent, rgba(0,0,0,0.3))'
+                      }}></div>
+                    </div>
+
+                    {/* Platform Content */}
+                    <div className="platform-content" style={{
+                      padding: '25px 20px',
+                      flex: 1,
+                      display: 'flex',
+                      flexDirection: 'column',
+                      justifyContent: 'space-between'
+                    }}>
+
+                      {/* Platform Info */}
+                      <div className="text-center mb-3">
+                        <h4 className="fw-bold mb-3" style={{
+                          color: '#2c3e50',
+                          fontSize: '1.5em',
+                          letterSpacing: '0.5px'
+                        }}>
+                          {platform.name}
+                        </h4>
+                        <span className="badge" style={{
+                          background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                          color: '#000080',
+                          fontSize: '1em',
+                          fontWeight: '700',
+                          padding: '12px 24px',
+                          borderRadius: '25px',
+                          boxShadow: '0 4px 15px rgba(255,215,0,0.3)'
+                        }}>
+                          <i className="bi bi-play-circle-fill me-2"></i>
+                          {platform.description}
+                        </span>
+                      </div>
+
+                      {/* View Button */}
+                      <Link
+                        to={platform.link}
+                        className="btn w-100"
+                        style={{
+                          background: 'linear-gradient(45deg, #2c3e50, #34495e)',
+                          border: 'none',
+                          borderRadius: '30px',
+                          color: '#FFFFFF',
+                          fontWeight: 'bold',
+                          padding: '15px 25px',
+                          fontSize: '1.1em',
+                          transition: 'all 0.3s ease',
+                          boxShadow: '0 6px 20px rgba(44,62,80,0.3)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                          textDecoration: 'none',
+                          marginTop: 'auto'
+                        }}
+                        onMouseEnter={(e) => {
+                          e.target.style.transform = 'translateY(-3px)';
+                          e.target.style.boxShadow = '0 10px 30px rgba(44,62,80,0.4)';
+                          e.target.style.background = 'linear-gradient(45deg, #34495e, #2c3e50)';
+                        }}
+                        onMouseLeave={(e) => {
+                          e.target.style.transform = 'translateY(0)';
+                          e.target.style.boxShadow = '0 6px 20px rgba(44,62,80,0.3)';
+                          e.target.style.background = 'linear-gradient(45deg, #2c3e50, #34495e)';
+                        }}
+                      >
+                        <i className="bi bi-arrow-right me-2"></i>
+                        View Courses
+                      </Link>
+                    </div>
+
+                    {/* Premium Accent Border */}
+                    <div className="position-absolute" style={{
+                      top: 0,
+                      left: 0,
+                      right: 0,
+                      height: '6px',
+                      background: 'linear-gradient(90deg, #FFD700, #FFA500, #FFD700)',
+                      borderRadius: '20px 20px 0 0'
+                    }}></div>
+                  </div>
+                ))}
+
+                {/* Hide scrollbar for webkit browsers */}
+                <style jsx>{`
+                  .platform-scroll-container::-webkit-scrollbar {
+                    display: none;
+                  }
+                  .platform-scroll-container {
+                    -ms-overflow-style: none;
+                    scrollbar-width: none;
+                  }
+                  
+                  @media (max-width: 768px) {
+                    .platform-card {
+                      min-width: 320px !important;
+                      max-width: 340px !important;
+                      height: 420px !important;
+                    }
+                    
+                    .platform-image-container {
+                      height: 220px !important;
+                    }
+                    
+                    .platform-content {
+                      padding: 20px 15px !important;
+                    }
+                  }
+                  
+                  @media (max-width: 480px) {
+                    .platform-card {
+                      min-width: 280px !important;
+                      max-width: 300px !important;
+                      height: 380px !important;
+                    }
+                    
+                    .platform-image-container {
+                      height: 180px !important;
+                    }
+                    
+                    .platform-content {
+                      padding: 15px 12px !important;
+                    }
+                  }
+                `}</style>
               </div>
+
+              <button
+                className="scroll-arrow right-arrow d-none d-lg-block"
+                onClick={scrollRight}
+                aria-label="Scroll right"
+                style={{
+                  position: 'absolute',
+                  right: '-80px',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  zIndex: 10,
+                  width: '60px',
+                  height: '60px',
+                  borderRadius: '50%',
+                  border: 'none',
+                  background: 'rgba(255, 215, 0, 0.9)',
+                  boxShadow: '0 4px 12px rgba(255,215,0,0.3)',
+                  fontSize: '20px',
+                  fontWeight: 'bold',
+                  color: '#000080',
+                  cursor: 'pointer',
+                  transition: 'all 0.3s ease',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center'
+                }}
+                onMouseEnter={(e) => {
+                  e.target.style.background = 'rgba(255, 165, 0, 1)';
+                  e.target.style.transform = 'translateY(-50%) scale(1.1)';
+                  e.target.style.boxShadow = '0 6px 20px rgba(255,215,0,0.4)';
+                }}
+                onMouseLeave={(e) => {
+                  e.target.style.background = 'rgba(255, 215, 0, 0.9)';
+                  e.target.style.transform = 'translateY(-50%) scale(1)';
+                  e.target.style.boxShadow = '0 4px 12px rgba(255,215,0,0.3)';
+                }}
+              >
+                ›
+              </button>
             </div>
           </div>
+        </div>
 
-          <div className="col-lg-4 col-md-6">
-            <div className="card h-100 shadow-sm border-0">
-              <div className="card-body d-flex flex-column">
-                <div className="text-center mb-3">
-                  <img 
-                    src="/src/assets/images/courses/finance-course.jpg" 
-                    alt="Master Personal Financial Planning" 
-                    className="rounded mx-auto d-block mb-2"
-                    style={{width: '80px', height: '80px', objectFit: 'cover'}}
-                  />
-                </div>
-                <h5 className="card-title text-center mb-3 fw-bold" style={{color: '#495057'}}>Master Personal Financial Planning</h5>
-                <p className="card-text flex-grow-1 text-muted">
-                  Advanced course teaching individuals how to create comprehensive financial plans, manage budgets, invest wisely, and achieve long-term financial goals.
-                </p>
-                <div className="text-center mt-auto">
-                  <a 
-                    href="https://eyouthlearning.com/details/course-v1:Finance_and_Accounting+FWCTIEJ2024+FWGFDZA2024" 
-                    className="btn btn-outline-secondary w-100"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={{borderColor: '#6c757d', color: '#495057'}}
-                  >
-                    <i className="bi bi-box-arrow-up-right me-2"></i>
-                    View Course
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-lg-4 col-md-6">
-            <div className="card h-100 shadow-sm border-0">
-              <div className="card-body d-flex flex-column">
-                <div className="text-center mb-3">
-                  <img 
-                    src="/src/assets/images/courses/all-courses.jpg" 
-                    alt="All Courses" 
-                    className="rounded mx-auto d-block mb-2"
-                    style={{width: '80px', height: '80px', objectFit: 'cover'}}
-                  />
-                </div>
-                <h5 className="card-title text-center mb-3 fw-bold" style={{color: '#495057'}}>More Courses</h5>
-                <p className="card-text flex-grow-1 text-muted">
-                  Explore my complete collection of training programs covering banking, personal finance, career development, and professional skills training.
-                </p>
-                <div className="text-center mt-auto">
-                  <a 
-                    href="https://yanfaa.com/eg/search?q=%D9%85%D8%AD%D9%85%D8%AF%20%D8%A7%D9%84%D8%B3%D9%84%D8%A7%D9%85%D9%88%D9%86%D9%8A" 
-                    className="btn btn-outline-secondary w-100"
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    style={{borderColor: '#6c757d', color: '#495057'}}
-                  >
-                    <i className="bi bi-box-arrow-up-right me-2"></i>
-                    View All Courses
-                  </a>
-                </div>
-              </div>
-            </div>
+        {/* View All Courses Button */}
+        <div className="row mt-5">
+          <div className="col-12 text-center">
+            <Link
+              to="/full-courses"
+              className="btn btn-lg"
+              style={{
+                background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                border: 'none',
+                borderRadius: '35px',
+                color: '#000080',
+                fontWeight: 'bold',
+                padding: '15px 40px',
+                fontSize: '1.1em',
+                transition: 'all 0.3s ease',
+                boxShadow: '0 8px 25px rgba(255,215,0,0.3)',
+                textDecoration: 'none',
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center'
+              }}
+              onMouseEnter={(e) => {
+                e.target.style.transform = 'translateY(-3px) scale(1.05)';
+                e.target.style.boxShadow = '0 12px 35px rgba(255,215,0,0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.transform = 'translateY(0) scale(1)';
+                e.target.style.boxShadow = '0 8px 25px rgba(255,215,0,0.3)';
+              }}
+            >
+              <i className="bi bi-collection me-2"></i>
+              View All Courses
+            </Link>
           </div>
         </div>
       </div>
