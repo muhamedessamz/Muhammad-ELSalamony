@@ -1,4 +1,5 @@
 import React, { useRef } from 'react';
+import ColorPalette from './ColorPalette';
 
 const offlineImages = [
   '1754075310217.jpg',
@@ -40,7 +41,7 @@ const Clients = () => {
 
   return (
     <section id="clients" className="py-5" style={{
-      background: 'linear-gradient(135deg, #0b1a61 0%, #1f2a89 40%, #d89a2d 100%)',
+      background: `linear-gradient(135deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 40%, ${ColorPalette.accentBeige} 100%)`,
       minHeight: '100vh',
       position: 'relative',
       overflow: 'hidden'
@@ -52,7 +53,7 @@ const Clients = () => {
         right: '-5%',
         width: '200px',
         height: '200px',
-        background: 'linear-gradient(45deg, rgba(216,154,45,0.2), rgba(216,154,45,0.1))',
+        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}20, ${ColorPalette.accentBeige}10)`,
         borderRadius: '50%',
         filter: 'blur(3px)'
       }}></div>
@@ -62,7 +63,7 @@ const Clients = () => {
         left: '-5%',
         width: '300px',
         height: '300px',
-        background: 'linear-gradient(45deg, rgba(216,154,45,0.15), rgba(216,154,45,0.08))',
+        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}15, ${ColorPalette.accentBeige}08)`,
         borderRadius: '50%',
         filter: 'blur(5px)'
       }}></div>
@@ -81,13 +82,13 @@ const Clients = () => {
         }}>
           <div className="col-12 text-center mb-4">
             <h2 className="display-4 fw-bold mb-3" style={{
-              color: '#FFFFFF',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+              color: ColorPalette.lightText,
+              textShadow: '2px 2px 4px rgba(27, 60, 83, 0.3)'
             }}>
               Offline Sessions
             </h2>
             <h3 className="h4 fw-normal" style={{
-              color: 'rgba(255,255,255,0.9)',
+              color: 'rgba(249, 243, 239, 0.9)',
               fontWeight: '500'
             }}>
               Training Sessions
@@ -106,7 +107,7 @@ const Clients = () => {
                   padding: '25px 15px',
                   scrollSnapType: 'x mandatory',
                   scrollbarWidth: 'thin',
-                  scrollbarColor: 'rgba(139, 69, 19, 0.3) transparent',
+                  scrollbarColor: 'rgba(210, 193, 182, 0.3) transparent',
                   WebkitOverflowScrolling: 'touch'
                 }}
               >
@@ -119,7 +120,7 @@ const Clients = () => {
                     padding: '15px',
                     boxShadow: '0 10px 30px rgba(44, 62, 80, 0.15)',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                    border: '2px solid rgba(139, 69, 19, 0.1)',
+                    border: '2px solid rgba(210, 193, 182, 0.1)',
                     minWidth: '280px',
                     maxWidth: '320px',
                     scrollSnapAlign: 'start'
@@ -128,8 +129,8 @@ const Clients = () => {
                       position: 'absolute',
                       top: '10px',
                       right: '15px',
-                      background: 'linear-gradient(45deg, #8b4513, #a0522d)',
-                      color: 'white',
+                      background: ColorPalette.secondaryBlue,
+                      color: ColorPalette.lightText,
                       padding: '5px 10px',
                       borderRadius: '15px',
                       fontSize: '0.8rem',
@@ -154,23 +155,23 @@ const Clients = () => {
                         e.target.style.transform = 'scale(1.05)';
                         e.target.parentElement.style.transform = 'translateY(-8px)';
                         e.target.parentElement.style.boxShadow = '0 20px 40px rgba(44, 62, 80, 0.25)';
-                        e.target.parentElement.style.borderColor = 'rgba(139, 69, 19, 0.3)';
+                        e.target.parentElement.style.borderColor = 'rgba(210, 193, 182, 0.3)';
                       }}
                       onMouseLeave={(e) => {
                         e.target.style.transform = 'scale(1)';
                         e.target.parentElement.style.transform = 'translateY(0)';
                         e.target.parentElement.style.boxShadow = '0 10px 30px rgba(44, 62, 80, 0.15)';
-                        e.target.parentElement.style.borderColor = 'rgba(139, 69, 19, 0.1)';
+                        e.target.parentElement.style.borderColor = 'rgba(210, 193, 182, 0.1)';
                       }}
                     />
                     <div style={{
                       marginTop: '12px',
                       padding: '8px 0',
-                      borderTop: '1px solid rgba(139, 69, 19, 0.1)'
+                      borderTop: '1px solid rgba(210, 193, 182, 0.1)'
                     }}>
                       <p style={{
                         margin: 0,
-                        color: '#5a6c7d',
+                        color: ColorPalette.primaryText,
                         fontSize: '0.85rem',
                         fontWeight: '600',
                         letterSpacing: '0.5px'
@@ -190,7 +191,7 @@ const Clients = () => {
           <div className="col-12 text-center">
             <div style={{
               height: '2px',
-              background: 'linear-gradient(to right, transparent, #FFD700, transparent)',
+              background: `linear-gradient(to right, transparent, ${ColorPalette.accentBeige}, transparent)`,
               margin: '50px 0',
               borderRadius: '1px'
             }}></div>
@@ -209,13 +210,13 @@ const Clients = () => {
         }}>
           <div className="col-12 text-center mb-4">
             <h2 className="display-4 fw-bold mb-3" style={{
-              color: '#FFFFFF',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+              color: ColorPalette.lightText,
+              textShadow: '2px 2px 4px rgba(27, 60, 83, 0.3)'
             }}>
               Online Sessions
             </h2>
             <h3 className="h4 fw-normal" style={{
-              color: 'rgba(255,255,255,0.9)',
+              color: 'rgba(249, 243, 239, 0.9)',
               fontWeight: '500'
             }}>
               Training Sessions
@@ -234,7 +235,7 @@ const Clients = () => {
                   padding: '25px 15px',
                   scrollSnapType: 'x mandatory',
                   scrollbarWidth: 'thin',
-                  scrollbarColor: 'rgba(76, 175, 80, 0.3) transparent',
+                  scrollbarColor: 'rgba(69, 104, 130, 0.3) transparent',
                   WebkitOverflowScrolling: 'touch'
                 }}
               >
@@ -247,7 +248,7 @@ const Clients = () => {
                     padding: '15px',
                     boxShadow: '0 10px 30px rgba(44, 62, 80, 0.15)',
                     transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
-                    border: '2px solid rgba(76, 175, 80, 0.1)',
+                    border: '2px solid rgba(69, 104, 130, 0.1)',
                     minWidth: '280px',
                     maxWidth: '320px',
                     scrollSnapAlign: 'start'
@@ -256,8 +257,8 @@ const Clients = () => {
                       position: 'absolute',
                       top: '10px',
                       right: '15px',
-                      background: 'linear-gradient(45deg, #4caf50, #66bb6a)',
-                      color: 'white',
+                      background: ColorPalette.secondaryBlue,
+                      color: ColorPalette.lightText,
                       padding: '5px 10px',
                       borderRadius: '15px',
                       fontSize: '0.8rem',
@@ -282,23 +283,23 @@ const Clients = () => {
                         e.target.style.transform = 'scale(1.05)';
                         e.target.parentElement.style.transform = 'translateY(-8px)';
                         e.target.parentElement.style.boxShadow = '0 20px 40px rgba(44, 62, 80, 0.25)';
-                        e.target.parentElement.style.borderColor = 'rgba(76, 175, 80, 0.3)';
+                        e.target.parentElement.style.borderColor = 'rgba(69, 104, 130, 0.3)';
                       }}
                       onMouseLeave={(e) => {
                         e.target.style.transform = 'scale(1)';
                         e.target.parentElement.style.transform = 'translateY(0)';
                         e.target.parentElement.style.boxShadow = '0 10px 30px rgba(44, 62, 80, 0.15)';
-                        e.target.parentElement.style.borderColor = 'rgba(76, 175, 80, 0.1)';
+                        e.target.parentElement.style.borderColor = 'rgba(69, 104, 130, 0.1)';
                       }}
                     />
                     <div style={{
                       marginTop: '12px',
                       padding: '8px 0',
-                      borderTop: '1px solid rgba(76, 175, 80, 0.1)'
+                      borderTop: '1px solid rgba(69, 104, 130, 0.1)'
                     }}>
                       <p style={{
                         margin: 0,
-                        color: '#5a6c7d',
+                        color: ColorPalette.primaryText,
                         fontSize: '0.85rem',
                         fontWeight: '600',
                         letterSpacing: '0.5px'
@@ -318,7 +319,7 @@ const Clients = () => {
           <div className="col-12 text-center">
             <div style={{
               height: '2px',
-              background: 'linear-gradient(to right, transparent, #FFD700, transparent)',
+              background: `linear-gradient(to right, transparent, ${ColorPalette.accentBeige}, transparent)`,
               margin: '50px 0',
               borderRadius: '1px'
             }}></div>
@@ -337,13 +338,13 @@ const Clients = () => {
         }}>
           <div className="col-12 text-center mb-4">
             <h2 className="display-4 fw-bold mb-3" style={{
-              color: '#FFFFFF',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+              color: ColorPalette.lightText,
+              textShadow: '2px 2px 4px rgba(27, 60, 83, 0.3)'
             }}>
               Some of The Clients
             </h2>
             <h3 className="h4 fw-normal" style={{
-              color: 'rgba(255,255,255,0.9)',
+              color: 'rgba(249, 243, 239, 0.9)',
               fontWeight: '500'
             }}>
               Delivered Trainings To
@@ -403,13 +404,13 @@ const Clients = () => {
         }
         
         .session-scroll-container::-webkit-scrollbar-thumb {
-          background: linear-gradient(45deg, #3498db, #2980b9);
+          background: linear-gradient(45deg, ${ColorPalette.secondaryBlue}, ${ColorPalette.primaryBlue});
           border-radius: 10px;
           transition: all 0.3s ease;
         }
         
         .session-scroll-container::-webkit-scrollbar-thumb:hover {
-          background: linear-gradient(45deg, #2980b9, #1f618d);
+          background: linear-gradient(45deg, ${ColorPalette.primaryBlue}, #152a42);
         }
         
         /* Mobile optimizations */

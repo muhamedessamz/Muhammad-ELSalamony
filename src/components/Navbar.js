@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import ColorPalette from './ColorPalette';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -37,21 +38,20 @@ const Navbar = () => {
           transition: 'all 0.3s ease-in-out',
           backdropFilter: scrolled ? 'blur(10px)' : 'none',
           backgroundColor: isHomePage
-            ? (scrolled ? 'rgba(10, 25, 47, 0.85)' : 'transparent')
-            : 'rgba(10, 25, 47, 0.95)',
+            ? (scrolled ? ColorPalette.darkBlueBackground : 'transparent')
+            : ColorPalette.darkBlueBackground,
           padding: scrolled ? '0.5rem 0' : '1rem 0',
-          borderBottom: scrolled ? '1px solid rgba(255, 255, 255, 0.05)' : 'none'
+          borderBottom: scrolled ? `1px solid ${ColorPalette.primaryBorder}` : 'none'
         }}
       >
         <div className="container">
           <Link
-            className="navbar-brand fw-bold gradient-text"
+            className="navbar-brand fw-bold"
             to="/"
             style={{
               fontSize: '1.5rem',
-              background: 'linear-gradient(135deg, #FFD700, #FFA500)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent'
+              color: ColorPalette.lightText,
+              textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`
             }}
             onClick={closeMobileMenu}
           >
@@ -188,12 +188,14 @@ const Navbar = () => {
                     className="btn btn-primary btn-sm"
                     onClick={closeMobileMenu}
                     style={{
+                      background: ColorPalette.blueGradient,
                       padding: '0.5rem 1.5rem',
                       borderRadius: '50px',
                       fontWeight: '600',
                       textTransform: 'uppercase',
                       letterSpacing: '1px',
-                      fontSize: '0.8rem'
+                      fontSize: '0.8rem',
+                      border: 'none'
                     }}
                   >
                     Get In Touch
@@ -204,13 +206,15 @@ const Navbar = () => {
                     className="btn btn-primary btn-sm"
                     onClick={closeMobileMenu}
                     style={{
+                      background: ColorPalette.blueGradient,
                       padding: '0.5rem 1.5rem',
                       borderRadius: '50px',
                       fontWeight: '600',
                       textTransform: 'uppercase',
                       letterSpacing: '1px',
                       fontSize: '0.8rem',
-                      textDecoration: 'none'
+                      textDecoration: 'none',
+                      border: 'none'
                     }}
                   >
                     Get In Touch
@@ -241,11 +245,11 @@ const Navbar = () => {
         }
         
         .navbar-toggler-icon.active {
-          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23FFD700' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
+          background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23D2C1B6' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e") !important;
         }
         
         .nav-link {
-          color: rgba(255, 255, 255, 0.9) !important;
+          color: ${ColorPalette.lightText} !important;
           font-weight: 500;
           margin: 0 0.5rem;
           padding: 0.5rem 1rem !important;
@@ -254,11 +258,11 @@ const Navbar = () => {
         }
         
         .navbar:not(.navbar-scrolled) .nav-link {
-          color: rgba(255, 255, 255, 0.9) !important;
+          color: ${ColorPalette.lightText} !important;
         }
         
         .navbar-scrolled .nav-link {
-          color: rgba(255, 255, 255, 0.8) !important;
+          color: ${ColorPalette.lightText} !important;
         }
         
         .nav-link::after {
@@ -268,7 +272,7 @@ const Navbar = () => {
           left: 50%;
           width: 0;
           height: 2px;
-          background: linear-gradient(90deg, #FFD700, #FFA500);
+          background: ${ColorPalette.beigeGradient};
           transition: all 0.3s ease;
           transform: translateX(-50%);
         }
@@ -276,13 +280,13 @@ const Navbar = () => {
         .nav-link:hover,
         .nav-link:focus,
         .nav-link.active {
-          color: #FFD700 !important;
+          color: ${ColorPalette.accentBeige} !important;
         }
         
         .navbar-scrolled .nav-link:hover,
         .navbar-scrolled .nav-link:focus,
         .navbar-scrolled .nav-link.active {
-          color: #FFD700 !important;
+          color: ${ColorPalette.accentBeige} !important;
         }
         
         .nav-link:hover::after,
@@ -294,11 +298,11 @@ const Navbar = () => {
         @media (max-width: 991.98px) {
           .navbar-collapse {
             padding: 1.5rem;
-            background: rgba(10, 25, 47, 0.98);
+            background: ${ColorPalette.darkBlueBackground};
             border-radius: 10px;
             margin-top: 1rem;
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid ${ColorPalette.primaryBorder};
           }
           
           .nav-link {

@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { FaGlobeAsia, FaUsers, FaHandsHelping, FaCheckCircle } from 'react-icons/fa';
+import ColorPalette from './ColorPalette';
 
 const ProfessionalProfile = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -53,7 +55,7 @@ const ProfessionalProfile = () => {
 
     return (
       <div className="h1 mb-3 animated-counter" style={{
-        color: 'rgba(255, 255, 255, 0.9)',
+        color: ColorPalette.lightText,
         fontWeight: 'bold',
         fontSize: '3rem',
         transition: 'all 0.3s ease'
@@ -69,28 +71,28 @@ const ProfessionalProfile = () => {
       label: 'Training Hours Delivered',
       description: 'Comprehensive programs across diverse topics',
       icon: 'bi-clock-history',
-      color: '#007bff'
+      color: ColorPalette.secondaryBlue
     },
     {
       target: 20000,
       label: 'Trainees Impacted',
       description: 'Individuals empowered through professional training',
       icon: 'bi-people-fill',
-      color: '#28a745'
+      color: ColorPalette.accentBeige
     },
     {
       target: 11,
       label: 'Years in the Field',
       description: 'Proven expertise in banking and training',
       icon: 'bi-calendar3',
-      color: '#ffc107'
+      color: ColorPalette.primaryBlue
     },
     {
       target: 20000,
       label: 'Online Watching Hours',
       description: 'Global reach through digital learning platforms',
       icon: 'bi-play-circle-fill',
-      color: '#17a2b8'
+      color: ColorPalette.secondaryBlue
     }
   ];
 
@@ -116,8 +118,8 @@ const ProfessionalProfile = () => {
 
   return (
     <div id="professional-profile" className="min-vh-100" style={{
-      background: 'linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%)',
-      color: '#FFFFFF',
+      background: ColorPalette.blueGradient,
+      color: ColorPalette.lightText,
       padding: '40px 0'
     }}>
       <div className="container">
@@ -125,20 +127,20 @@ const ProfessionalProfile = () => {
         <div className="row mb-5">
           <div className="col-12 text-center">
             <h1 className="display-4 fw-bold mb-3" style={{
-              color: '#FFFFFF',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.5)'
+              color: ColorPalette.lightText,
+              textShadow: `2px 2px 4px ${ColorPalette.blueShadow}`
             }}>
               Professional Profile
             </h1>
-            <p className="lead mb-4" style={{ color: '#B0B3B8' }}>
+            <p className="lead mb-4" style={{ color: ColorPalette.accentText }}>
               Discover my professional journey, achievements, and training expertise
             </p>
             <Link
               to="/full-courses"
               className="btn me-3"
               style={{
-                backgroundColor: '#007bff',
-                color: 'white',
+                backgroundColor: ColorPalette.secondaryBlue,
+                color: ColorPalette.lightText,
                 borderRadius: '25px',
                 fontWeight: '600',
                 padding: '12px 24px',
@@ -153,8 +155,8 @@ const ProfessionalProfile = () => {
               to="/"
               className="btn btn-outline-light"
               style={{
-                borderColor: 'rgba(255,255,255,0.5)',
-                color: '#FFFFFF',
+                borderColor: ColorPalette.accentBorder,
+                color: ColorPalette.lightText,
                 borderRadius: '25px',
                 padding: '12px 24px',
                 transition: 'all 0.3s ease',
@@ -171,48 +173,141 @@ const ProfessionalProfile = () => {
         <div className="row justify-content-center mb-5">
           <div className="col-lg-10">
             <div className="component" style={{
-              background: 'rgba(255, 255, 255, 0.05)',
+              background: ColorPalette.lightBlueBackground,
               backdropFilter: 'blur(10px)',
-              border: '1px solid rgba(255, 255, 255, 0.1)',
+              border: `1px solid ${ColorPalette.primaryBorder}`,
               borderRadius: '15px',
-              padding: '2.5rem',
+              padding: '2rem',
               transition: 'all 0.3s ease'
             }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-5px)';
-                e.currentTarget.style.boxShadow = '0 20px 40px rgba(0,0,0,0.15)';
+                e.currentTarget.style.boxShadow = `0 20px 40px ${ColorPalette.blueShadow}`;
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)';
-                e.currentTarget.style.boxShadow = '0 10px 20px rgba(0,0,0,0.1)';
+                e.currentTarget.style.boxShadow = `0 10px 20px ${ColorPalette.blueShadow}`;
               }}
             >
-              <h3 className="h3 fw-bold mb-4 text-center" style={{ color: 'white' }}>
+              <h3 className="h3 fw-bold mb-4 text-center" style={{ color: ColorPalette.lightText }}>
                 Professional Journey
               </h3>
 
-              <p className="lead text-center mb-4" style={{ color: 'white' }}>
+              <p className="lead text-center mb-4" style={{ color: ColorPalette.lightText }}>
                 Muhammad ELSalamony is a banking professional and certified trainer with over 11 years of experience in banking and professional training.
               </p>
 
-              <div className="row g-4">
+              <div className="row g-3">
                 <div className="col-md-6">
-                  <p style={{ color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.8' }}>
-                    <i className="bi bi-check-circle-fill text-success me-2"></i>
-                    Collaborates with leading learning platforms in the Arab world such as Almentor, Yanfaa, Career180, EYouth, and Learnkhana, as well as the global platform Udemy.
-                  </p>
+                  <div className="d-flex align-items-start mb-3"
+                    style={{
+                      background: `linear-gradient(135deg, ${ColorPalette.primaryBlue}20, ${ColorPalette.secondaryBlue}10)`,
+                      borderRadius: '12px',
+                      padding: '1.2rem',
+                      transition: 'all 0.3s ease',
+                      border: `1px solid ${ColorPalette.primaryBorder}`
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = `0 8px 20px ${ColorPalette.blueShadow}60`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}>
+                    <div style={{
+                      background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
+                      borderRadius: '50%',
+                      width: '45px',
+                      height: '45px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }} className="me-3">
+                      <div style={{ color: ColorPalette.primaryText, fontSize: '1.3rem' }}>
+                        <FaGlobeAsia />
+                      </div>
+                    </div>
+                    <p style={{ color: ColorPalette.lightText, lineHeight: '1.6', margin: '0', fontSize: '0.95rem' }}>
+                      <FaCheckCircle className="text-success me-2" />
+                      Collaborates with leading learning platforms in the Arab world such as Almentor, Yanfaa, Career180, EYouth, and Learnkhana, as well as the global platform Udemy.
+                    </p>
+                  </div>
                 </div>
                 <div className="col-md-6">
-                  <p style={{ color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.8' }}>
-                    <i className="bi bi-check-circle-fill text-success me-2"></i>
-                    Passionate about empowering youth and simplifying banking & financial concepts, has trained over 20,000 individuals, helping them advance their careers.
-                  </p>
+                  <div className="d-flex align-items-start mb-3"
+                    style={{
+                      background: `linear-gradient(135deg, ${ColorPalette.primaryBlue}20, ${ColorPalette.secondaryBlue}10)`,
+                      borderRadius: '12px',
+                      padding: '1.2rem',
+                      transition: 'all 0.3s ease',
+                      border: `1px solid ${ColorPalette.primaryBorder}`
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = `0 8px 20px ${ColorPalette.blueShadow}60`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}>
+                    <div style={{
+                      background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
+                      borderRadius: '50%',
+                      width: '45px',
+                      height: '45px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }} className="me-3">
+                      <div style={{ color: ColorPalette.primaryText, fontSize: '1.3rem' }}>
+                        <FaUsers />
+                      </div>
+                    </div>
+                    <p style={{ color: ColorPalette.lightText, lineHeight: '1.6', margin: '0', fontSize: '0.95rem' }}>
+                      <FaCheckCircle className="text-success me-2" />
+                      Passionate about empowering youth and simplifying banking & financial concepts, has trained over 20,000 individuals, helping them advance their careers.
+                    </p>
+                  </div>
                 </div>
                 <div className="col-12">
-                  <p style={{ color: 'rgba(255, 255, 255, 0.9)', lineHeight: '1.8' }}>
-                    <i className="bi bi-check-circle-fill text-success me-2"></i>
-                    Recognized as an influencer on LinkedIn in financial literacy, banking services, and financial freedom.
-                  </p>
+                  <div className="d-flex align-items-start"
+                    style={{
+                      background: `linear-gradient(135deg, ${ColorPalette.accentBeige}20, ${ColorPalette.offWhite}10)`,
+                      borderRadius: '12px',
+                      padding: '1.2rem',
+                      transition: 'all 0.3s ease',
+                      border: `1px solid ${ColorPalette.accentBorder}`
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = `0 8px 20px ${ColorPalette.beigeShadow}60`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}>
+                    <div style={{
+                      background: `linear-gradient(45deg, ${ColorPalette.primaryBlue}, ${ColorPalette.secondaryBlue})`,
+                      borderRadius: '50%',
+                      width: '45px',
+                      height: '45px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      flexShrink: 0
+                    }} className="me-3">
+                      <div style={{ color: ColorPalette.offWhite, fontSize: '1.3rem' }}>
+                        <FaHandsHelping />
+                      </div>
+                    </div>
+                    <p style={{ color: ColorPalette.lightText, lineHeight: '1.6', margin: '0', fontSize: '0.95rem' }}>
+                      <FaCheckCircle className="text-success me-2" />
+                      Recognized as an influencer on LinkedIn in financial literacy, banking services, and financial freedom.
+                    </p>
+                  </div>
                 </div>
               </div>
             </div>
@@ -222,7 +317,7 @@ const ProfessionalProfile = () => {
         {/* Professional Titles I Had */}
         <div className="row justify-content-center mb-5">
           <div className="col-12">
-            <h3 className="h3 fw-bold mb-4 text-center" style={{ color: 'white' }}>
+            <h3 className="h3 fw-bold mb-4 text-center" style={{ color: ColorPalette.lightText }}>
               Professional Titles I Had
             </h3>
 
@@ -230,28 +325,28 @@ const ProfessionalProfile = () => {
               {professionalTitles.map((title, index) => (
                 <div key={index} className="col-md-6 col-lg-3">
                   <div className="text-center p-4 border rounded-3 h-100 d-flex flex-column justify-content-center component" style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
+                    background: ColorPalette.lightBlueBackground,
                     backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: `1px solid ${ColorPalette.primaryBorder}`,
                     transition: 'all 0.3s ease'
                   }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.boxShadow = '0 10px 30px rgba(255,255,255,0.1)';
+                      e.currentTarget.style.boxShadow = `0 10px 30px ${ColorPalette.beigeShadow}`;
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                      e.currentTarget.style.boxShadow = `0 5px 15px ${ColorPalette.blueShadow}`;
                     }}
                   >
                     <div className="mb-3">
                       <i className="bi bi-award-fill" style={{
                         fontSize: '3rem',
-                        color: '#FFD700',
+                        color: ColorPalette.accentBeige,
                         marginBottom: '1rem'
                       }}></i>
                     </div>
-                    <h5 className="fw-bold mb-2" style={{ color: 'white' }}>
+                    <h5 className="fw-bold mb-2" style={{ color: ColorPalette.lightText }}>
                       {title}
                     </h5>
                   </div>
@@ -264,7 +359,7 @@ const ProfessionalProfile = () => {
         {/* Titles in Training Field */}
         <div className="row justify-content-center mb-5">
           <div className="col-12">
-            <h3 className="h3 fw-bold mb-4 text-center" style={{ color: 'white' }}>
+            <h3 className="h3 fw-bold mb-4 text-center" style={{ color: ColorPalette.lightText }}>
               Titles I Had in The Training Field
             </h3>
 
@@ -272,28 +367,28 @@ const ProfessionalProfile = () => {
               {trainingTitles.map((title, index) => (
                 <div key={index} className="col-md-6">
                   <div className="text-center p-4 border rounded-3 h-100 d-flex flex-column justify-content-center component" style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
+                    background: ColorPalette.lightBlueBackground,
                     backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: `1px solid ${ColorPalette.primaryBorder}`,
                     transition: 'all 0.3s ease'
                   }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.boxShadow = '0 10px 30px rgba(255,255,255,0.1)';
+                      e.currentTarget.style.boxShadow = `0 10px 30px ${ColorPalette.beigeShadow}`;
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                      e.currentTarget.style.boxShadow = `0 5px 15px ${ColorPalette.blueShadow}`;
                     }}
                   >
                     <div className="mb-3">
                       <i className="bi bi-person-badge-fill" style={{
                         fontSize: '3rem',
-                        color: '#28a745',
+                        color: ColorPalette.accentBeige,
                         marginBottom: '1rem'
                       }}></i>
                     </div>
-                    <h5 className="fw-bold mb-2" style={{ color: 'white' }}>
+                    <h5 className="fw-bold mb-2" style={{ color: ColorPalette.lightText }}>
                       {title}
                     </h5>
                   </div>
@@ -306,7 +401,7 @@ const ProfessionalProfile = () => {
         {/* Figures / Achievements with Animated Counters */}
         <div className="row justify-content-center mb-5 achievements-section">
           <div className="col-12">
-            <h3 className="h3 fw-bold mb-5 text-center" style={{ color: 'white' }}>
+            <h3 className="h3 fw-bold mb-5 text-center" style={{ color: ColorPalette.lightText }}>
               Professional Figures & Achievements
             </h3>
 
@@ -314,20 +409,20 @@ const ProfessionalProfile = () => {
               {achievements.map((achievement, index) => (
                 <div key={index} className="col-md-6 col-lg-3">
                   <div className="text-center p-4 border rounded-3 h-100 d-flex flex-column justify-content-center component" style={{
-                    background: `linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05))`,
+                    background: `linear-gradient(135deg, ${ColorPalette.lightBlueBackground}, ${ColorPalette.darkBlueBackground})`,
                     backdropFilter: 'blur(15px)',
-                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                    border: `1px solid ${ColorPalette.accentBorder}`,
                     transition: 'all 0.3s ease',
                     position: 'relative',
                     overflow: 'hidden'
                   }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-10px) scale(1.02)';
-                      e.currentTarget.style.boxShadow = '0 20px 40px rgba(255,255,255,0.15)';
+                      e.currentTarget.style.boxShadow = `0 20px 40px ${ColorPalette.beigeShadow}`;
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0) scale(1)';
-                      e.currentTarget.style.boxShadow = '0 10px 30px rgba(0,0,0,0.2)';
+                      e.currentTarget.style.boxShadow = `0 10px 30px ${ColorPalette.blueShadow}`;
                     }}
                   >
                     <div className="position-absolute top-0 start-0 w-100 h-100" style={{
@@ -351,10 +446,10 @@ const ProfessionalProfile = () => {
                     </div>
 
                     <div className="position-relative z-2">
-                      <h5 className="fw-bold mb-2" style={{ color: 'white' }}>
+                      <h5 className="fw-bold mb-2" style={{ color: ColorPalette.lightText }}>
                         {achievement.label}
                       </h5>
-                      <p className="small mb-0" style={{ color: 'rgba(255, 255, 255, 0.8)' }}>
+                      <p className="small mb-0" style={{ color: ColorPalette.accentText }}>
                         {achievement.description}
                       </p>
                     </div>
@@ -368,7 +463,7 @@ const ProfessionalProfile = () => {
         {/* Training & Lecturing Setups */}
         <div className="row justify-content-center mb-5">
           <div className="col-12">
-            <h3 className="h3 fw-bold mb-4 text-center" style={{ color: 'white' }}>
+            <h3 className="h3 fw-bold mb-4 text-center" style={{ color: ColorPalette.lightText }}>
               Training & Lecturing Setups
             </h3>
 
@@ -376,29 +471,29 @@ const ProfessionalProfile = () => {
               {trainingSetups.map((setup, index) => (
                 <div key={index} className="col-md-6 col-lg-2 col-sm-6">
                   <div className="text-center p-4 border rounded-3 h-100 d-flex flex-column justify-content-center component" style={{
-                    background: 'rgba(255, 255, 255, 0.05)',
+                    background: ColorPalette.lightBlueBackground,
                     backdropFilter: 'blur(10px)',
-                    border: '1px solid rgba(255, 255, 255, 0.1)',
+                    border: `1px solid ${ColorPalette.primaryBorder}`,
                     transition: 'all 0.3s ease',
                     minHeight: '150px'
                   }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-5px)';
-                      e.currentTarget.style.boxShadow = '0 10px 30px rgba(255,255,255,0.1)';
+                      e.currentTarget.style.boxShadow = `0 10px 30px ${ColorPalette.beigeShadow}`;
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0)';
-                      e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+                      e.currentTarget.style.boxShadow = `0 5px 15px ${ColorPalette.blueShadow}`;
                     }}
                   >
                     <div className="mb-3">
                       <i className={`bi ${setup.icon}`} style={{
                         fontSize: '2.5rem',
-                        color: '#FFD700',
+                        color: ColorPalette.accentBeige,
                         marginBottom: '1rem'
                       }}></i>
                     </div>
-                    <h6 className="fw-bold mb-0" style={{ color: 'white' }}>
+                    <h6 className="fw-bold mb-0" style={{ color: ColorPalette.lightText }}>
                       {setup.name}
                     </h6>
                   </div>
@@ -409,53 +504,62 @@ const ProfessionalProfile = () => {
         </div>
 
       </div>
-
+      
       <style jsx>{`
-        @keyframes countUp {
-          from { opacity: 0; transform: translateY(20px); }
-          to { opacity: 1; transform: translateY(0); }
-        }
-        
-        .animated-counter {
-          animation: countUp 0.6s ease-out forwards;
-        }
-        
-        .achievements-section {
-          opacity: 0;
-          transform: translateY(50px);
-          transition: all 0.8s ease-out;
-        }
-        
-        .achievements-section.visible {
-          opacity: 1;
-          transform: translateY(0);
-        }
-        
-        .component {
-          background: rgba(255, 255, 255, 0.05);
-          backdrop-filter: blur(10px);
-          border: 1px solid rgba(255, 255, 255, 0.1);
-          border-radius: 15px;
-          padding: 2rem;
-          transition: all 0.3s ease;
-        }
-        
-        .component:hover {
-          transform: translateY(-5px);
-          box-shadow: 0 20px 40px rgba(0,0,0,0.15);
-        }
-        
         @media (max-width: 768px) {
-          .h1 {
-            font-size: 2.5rem !important;
+          .component {
+            padding: 1.5rem !important;
+          }
+          
+          .lead {
+            font-size: 1rem !important;
+            line-height: 1.5 !important;
+          }
+          
+          .d-flex {
+            padding: 1rem !important;
+          }
+          
+          .about-point-text, .about-highlight-text {
+            font-size: 0.9rem !important;
+            line-height: 1.5 !important;
+          }
+        }
+        
+        @media (max-width: 576px) {
+          #professional-profile {
+            padding: 20px 0 !important;
           }
           
           .component {
-            padding: 1.5rem;
+            padding: 1.2rem !important;
+            margin: 0 0.25rem;
           }
           
-          .display-4 {
-            font-size: 2.5rem !important;
+          .h3 {
+            font-size: 1.5rem !important;
+          }
+          
+          .lead {
+            font-size: 0.9rem !important;
+            margin-bottom: 1rem !important;
+          }
+          
+          .d-flex {
+            padding: 0.9rem !important;
+          }
+          
+          .about-point-text, .about-highlight-text {
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
+          }
+          
+          .mb-4 {
+            margin-bottom: 1rem !important;
+          }
+          
+          .mb-3 {
+            margin-bottom: 0.8rem !important;
           }
         }
       `}</style>

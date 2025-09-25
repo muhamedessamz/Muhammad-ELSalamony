@@ -1,28 +1,30 @@
 import React from 'react';
+import { FaPencilAlt, FaClipboardCheck, FaVideo } from 'react-icons/fa';
+import ColorPalette from './ColorPalette';
 
 const TrainingResponsibilities = () => {
     const responsibilities = [
         {
             id: 1,
             title: 'TRAINING MATERIALS DESIGN',
-            icon: 'bi-pencil-square',
-            color: '#f39c12',
+            icon: <FaPencilAlt />,
+            color: ColorPalette.accentBeige,
             items: ['Presentations', 'Worksheets', 'etc.'],
             description: 'Creating comprehensive educational materials and resources'
         },
         {
             id: 2,
             title: 'ASSESSMENT ACTIVITIES',
-            icon: 'bi-clipboard-check',
-            color: '#e74c3c',
+            icon: <FaClipboardCheck />,
+            color: ColorPalette.secondaryBlue,
             items: ['Case studies', 'Quizzes', 'Exams'],
             description: 'Developing evaluation methods and learning assessments'
         },
         {
             id: 3,
             title: 'ONLINE & OFFLINE SESSIONS DELIVERY',
-            icon: 'bi-camera-video',
-            color: '#3498db',
+            icon: <FaVideo />,
+            color: ColorPalette.primaryBlue,
             items: ['Script writing for recorded videos (Autocue)'],
             description: 'Delivering engaging training sessions across multiple platforms'
         }
@@ -30,7 +32,7 @@ const TrainingResponsibilities = () => {
 
     return (
         <section id="training-responsibilities" className="py-5" style={{
-            background: 'linear-gradient(45deg, #0b1a61 0%, #1f2a89 60%, #d89a2d 100%)',
+            background: ColorPalette.blueGradient,
             minHeight: '100vh',
             position: 'relative',
             overflow: 'hidden'
@@ -42,7 +44,7 @@ const TrainingResponsibilities = () => {
                 right: '-5%',
                 width: '250px',
                 height: '250px',
-                background: 'linear-gradient(45deg, rgba(255,215,0,0.1), rgba(255,165,0,0.05))',
+                background: `linear-gradient(45deg, ${ColorPalette.accentBeige}10, ${ColorPalette.accentBeige}05)`,
                 borderRadius: '50%',
                 filter: 'blur(3px)'
             }}></div>
@@ -52,7 +54,7 @@ const TrainingResponsibilities = () => {
                 left: '-8%',
                 width: '350px',
                 height: '350px',
-                background: 'linear-gradient(45deg, rgba(255,215,0,0.08), rgba(255,165,0,0.03))',
+                background: `linear-gradient(45deg, ${ColorPalette.accentBeige}08, ${ColorPalette.accentBeige}03)`,
                 borderRadius: '50%',
                 filter: 'blur(5px)'
             }}></div>
@@ -61,21 +63,21 @@ const TrainingResponsibilities = () => {
                 <div className="row align-items-center">
                     <div className="col-lg-6 mb-4 mb-lg-0">
                         <div style={{
-                            background: 'rgba(255, 215, 0, 0.15)',
+                            background: `${ColorPalette.accentBeige}26`,
                             backdropFilter: 'blur(20px)',
-                            border: '1px solid rgba(255, 215, 0, 0.2)',
+                            border: `1px solid ${ColorPalette.accentBorder}`,
                             borderRadius: '20px',
                             padding: '2.5rem',
-                            boxShadow: '0 20px 40px rgba(0,0,0,0.2)'
+                            boxShadow: `0 20px 40px ${ColorPalette.blueShadow}`
                         }}>
                             <h2 className="h3 fw-bold mb-4" style={{
-                                color: '#FFD700',
+                                color: ColorPalette.accentBeige,
                                 fontSize: '2rem',
-                                textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
+                                textShadow: `2px 2px 4px ${ColorPalette.blueShadow}`,
                                 textAlign: 'center',
                                 marginBottom: '2rem',
                                 textDecoration: 'underline',
-                                textDecorationColor: '#FFD700'
+                                textDecorationColor: ColorPalette.accentBeige
                             }}>
                                 Training Responsibilities
                             </h2>
@@ -84,7 +86,7 @@ const TrainingResponsibilities = () => {
                                 <div key={responsibility.id} className="mb-4">
                                     <div className="d-flex align-items-start mb-3">
                                         <div className="me-3" style={{
-                                            background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                                            background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
                                             borderRadius: '50%',
                                             width: '45px',
                                             height: '45px',
@@ -93,13 +95,15 @@ const TrainingResponsibilities = () => {
                                             justifyContent: 'center',
                                             flexShrink: 0
                                         }}>
-                                            <i className={responsibility.icon} style={{ color: 'white', fontSize: '1.3rem' }}></i>
+                                            <div style={{ color: ColorPalette.primaryText, fontSize: '1.3rem' }}>
+                                                {responsibility.icon}
+                                            </div>
                                         </div>
                                         <div style={{ flex: 1 }}>
                                             <h3 className="h5 fw-bold mb-2" style={{
-                                                color: '#FFFFFF',
+                                                color: ColorPalette.lightText,
                                                 fontSize: '1.2rem',
-                                                textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                                                textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`,
                                                 textTransform: 'uppercase',
                                                 letterSpacing: '0.5px'
                                             }}>
@@ -111,14 +115,14 @@ const TrainingResponsibilities = () => {
                                                 {responsibility.items.map((item, itemIndex) => (
                                                     <span key={itemIndex} style={{
                                                         display: 'inline-block',
-                                                        background: 'rgba(255, 255, 255, 0.9)',
-                                                        color: '#2c3e50',
+                                                        background: ColorPalette.lightText,
+                                                        color: ColorPalette.primaryText,
                                                         padding: '6px 12px',
                                                         borderRadius: '15px',
                                                         margin: '2px 4px 2px 0',
                                                         fontSize: '0.8rem',
                                                         fontWeight: '600',
-                                                        border: '2px solid rgba(255, 215, 0, 0.3)',
+                                                        border: `2px solid ${ColorPalette.primaryBorder}`,
                                                         transition: 'all 0.2s ease'
                                                     }}>
                                                         {item}
@@ -133,7 +137,7 @@ const TrainingResponsibilities = () => {
                                         <div style={{
                                             width: '100%',
                                             height: '2px',
-                                            background: 'linear-gradient(90deg, transparent, rgba(255,215,0,0.3), transparent)',
+                                            background: `linear-gradient(90deg, transparent, ${ColorPalette.accentBorder}, transparent)`,
                                             margin: '1.5rem 0'
                                         }}></div>
                                     )}
@@ -147,10 +151,10 @@ const TrainingResponsibilities = () => {
                             margin: '0 auto',
                             overflow: 'hidden',
                             borderRadius: '20px',
-                            boxShadow: '0 25px 50px rgba(0,0,0,0.3)',
-                            background: 'rgba(255, 215, 0, 0.1)',
+                            boxShadow: `0 25px 50px ${ColorPalette.blueShadow}`,
+                            background: `${ColorPalette.accentBeige}1a`,
                             backdropFilter: 'blur(10px)',
-                            border: '2px solid rgba(255, 215, 0, 0.3)',
+                            border: `2px solid ${ColorPalette.accentBorder}`,
                             padding: '15px'
                         }}>
                             <img

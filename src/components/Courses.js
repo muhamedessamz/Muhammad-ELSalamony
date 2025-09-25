@@ -1,5 +1,6 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
+import ColorPalette from './ColorPalette';
 
 const platforms = [
   {
@@ -56,7 +57,7 @@ const Courses = () => {
 
   return (
     <section id="courses" className="py-5" style={{
-      background: 'linear-gradient(45deg, #0b1a61 0%, #1f2a89 35%, #d89a2d 100%)',
+      background: `linear-gradient(45deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 35%, ${ColorPalette.accentBeige} 100%)`,
       minHeight: '100vh',
       position: 'relative',
       overflow: 'hidden'
@@ -68,7 +69,7 @@ const Courses = () => {
         right: '-10%',
         width: '250px',
         height: '250px',
-        background: 'linear-gradient(45deg, rgba(216,154,45,0.2), rgba(216,154,45,0.1))',
+        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}20, ${ColorPalette.accentBeige}10)`,
         borderRadius: '50%',
         filter: 'blur(3px)'
       }}></div>
@@ -78,7 +79,7 @@ const Courses = () => {
         left: '-8%',
         width: '350px',
         height: '350px',
-        background: 'linear-gradient(45deg, rgba(216,154,45,0.15), rgba(216,154,45,0.08))',
+        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}15, ${ColorPalette.accentBeige}08)`,
         borderRadius: '50%',
         filter: 'blur(5px)'
       }}></div>
@@ -89,7 +90,7 @@ const Courses = () => {
             <hr className="my-5" style={{
               border: 'none',
               height: '2px',
-              background: 'linear-gradient(90deg, transparent, #FFD700, transparent)',
+              background: `linear-gradient(90deg, transparent, ${ColorPalette.accentBeige}, transparent)`,
               margin: '60px 0'
             }} />
           </div>
@@ -100,12 +101,15 @@ const Courses = () => {
         <div className="row">
           <div className="col-12 text-center mb-5">
             <h2 className="display-4 fw-bold mb-3" style={{
-              color: '#FFFFFF',
-              textShadow: '2px 2px 4px rgba(0,0,0,0.3)'
+              color: ColorPalette.lightText,
+              textShadow: `2px 2px 4px ${ColorPalette.blueShadow}`
             }}>
               My Courses
             </h2>
-            <p className="lead text-light mb-0" style={{ fontSize: '1.2em', color: 'rgba(255,255,255,0.9)' }}>
+            <p className="lead mb-0" style={{ 
+              fontSize: '1.2em', 
+              color: 'rgba(249, 243, 239, 0.9)' 
+            }}>
               Explore my training programs across leading platforms
             </p>
           </div>
@@ -129,11 +133,11 @@ const Courses = () => {
                   height: '60px',
                   borderRadius: '50%',
                   border: 'none',
-                  background: 'rgba(255, 215, 0, 0.9)',
-                  boxShadow: '0 4px 12px rgba(255,215,0,0.3)',
+                  background: ColorPalette.accentBeige,
+                  boxShadow: `0 4px 12px ${ColorPalette.beigeShadow}`,
                   fontSize: '20px',
                   fontWeight: 'bold',
-                  color: '#000080',
+                  color: ColorPalette.primaryBlue,
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   display: 'flex',
@@ -141,14 +145,14 @@ const Courses = () => {
                   justifyContent: 'center'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(255, 165, 0, 1)';
+                  e.target.style.background = ColorPalette.secondaryBlue;
                   e.target.style.transform = 'translateY(-50%) scale(1.1)';
-                  e.target.style.boxShadow = '0 6px 20px rgba(255,215,0,0.4)';
+                  e.target.style.boxShadow = `0 6px 20px ${ColorPalette.beigeShadow}`;
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(255, 215, 0, 0.9)';
+                  e.target.style.background = ColorPalette.accentBeige;
                   e.target.style.transform = 'translateY(-50%) scale(1)';
-                  e.target.style.boxShadow = '0 4px 12px rgba(255,215,0,0.3)';
+                  e.target.style.boxShadow = `0 4px 12px ${ColorPalette.beigeShadow}`;
                 }}
               >
                 ‹
@@ -183,7 +187,7 @@ const Courses = () => {
                       background: 'rgba(255, 255, 255, 0.95)',
                       backdropFilter: 'blur(15px)',
                       borderRadius: '25px',
-                      border: '2px solid rgba(255, 215, 0, 0.2)',
+                      border: `2px solid ${ColorPalette.accentBeige}20`,
                       overflow: 'hidden',
                       transition: 'all 0.4s cubic-bezier(0.4, 0, 0.2, 1)',
                       cursor: 'pointer',
@@ -195,12 +199,12 @@ const Courses = () => {
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-10px) scale(1.03)';
                       e.currentTarget.style.boxShadow = '0 25px 60px rgba(0,0,0,0.2)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 215, 0, 0.6)';
+                      e.currentTarget.style.borderColor = `${ColorPalette.accentBeige}80`;
                     }}
                     onMouseLeave={(e) => {
                       e.currentTarget.style.transform = 'translateY(0) scale(1)';
                       e.currentTarget.style.boxShadow = '0 15px 45px rgba(0,0,0,0.1)';
-                      e.currentTarget.style.borderColor = 'rgba(255, 215, 0, 0.2)';
+                      e.currentTarget.style.borderColor = `${ColorPalette.accentBeige}20`;
                     }}
                     role="button"
                     tabIndex={0}
@@ -260,20 +264,20 @@ const Courses = () => {
                       {/* Platform Info */}
                       <div className="text-center mb-3">
                         <h4 className="fw-bold mb-3" style={{
-                          color: '#2c3e50',
+                          color: ColorPalette.primaryBlue,
                           fontSize: '1.5em',
                           letterSpacing: '0.5px'
                         }}>
                           {platform.name}
                         </h4>
                         <span className="badge" style={{
-                          background: 'linear-gradient(45deg, #FFD700, #FFA500)',
-                          color: '#000080',
+                          background: ColorPalette.beigeGradient,
+                          color: ColorPalette.primaryBlue,
                           fontSize: '1em',
                           fontWeight: '700',
                           padding: '12px 24px',
                           borderRadius: '25px',
-                          boxShadow: '0 4px 15px rgba(255,215,0,0.3)'
+                          boxShadow: `0 4px 15px ${ColorPalette.beigeShadow}`
                         }}>
                           <i className="bi bi-play-circle-fill me-2"></i>
                           {platform.description}
@@ -285,15 +289,15 @@ const Courses = () => {
                         to={platform.link}
                         className="btn w-100"
                         style={{
-                          background: 'linear-gradient(45deg, #2c3e50, #34495e)',
+                          background: ColorPalette.blueGradient,
                           border: 'none',
                           borderRadius: '30px',
-                          color: '#FFFFFF',
+                          color: ColorPalette.lightText,
                           fontWeight: 'bold',
                           padding: '15px 25px',
                           fontSize: '1.1em',
                           transition: 'all 0.3s ease',
-                          boxShadow: '0 6px 20px rgba(44,62,80,0.3)',
+                          boxShadow: `0 6px 20px ${ColorPalette.blueShadow}`,
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -302,13 +306,13 @@ const Courses = () => {
                         }}
                         onMouseEnter={(e) => {
                           e.target.style.transform = 'translateY(-3px)';
-                          e.target.style.boxShadow = '0 10px 30px rgba(44,62,80,0.4)';
-                          e.target.style.background = 'linear-gradient(45deg, #34495e, #2c3e50)';
+                          e.target.style.boxShadow = `0 10px 30px ${ColorPalette.beigeShadow}`;
+                          e.target.style.background = ColorPalette.secondaryBlue;
                         }}
                         onMouseLeave={(e) => {
                           e.target.style.transform = 'translateY(0)';
-                          e.target.style.boxShadow = '0 6px 20px rgba(44,62,80,0.3)';
-                          e.target.style.background = 'linear-gradient(45deg, #2c3e50, #34495e)';
+                          e.target.style.boxShadow = `0 6px 20px ${ColorPalette.blueShadow}`;
+                          e.target.style.background = ColorPalette.blueGradient;
                         }}
                       >
                         <i className="bi bi-arrow-right me-2"></i>
@@ -322,7 +326,7 @@ const Courses = () => {
                       left: 0,
                       right: 0,
                       height: '6px',
-                      background: 'linear-gradient(90deg, #FFD700, #FFA500, #FFD700)',
+                      background: ColorPalette.beigeGradient,
                       borderRadius: '20px 20px 0 0'
                     }}></div>
                   </div>
@@ -386,11 +390,11 @@ const Courses = () => {
                   height: '60px',
                   borderRadius: '50%',
                   border: 'none',
-                  background: 'rgba(255, 215, 0, 0.9)',
-                  boxShadow: '0 4px 12px rgba(255,215,0,0.3)',
+                  background: ColorPalette.accentBeige,
+                  boxShadow: `0 4px 12px ${ColorPalette.beigeShadow}`,
                   fontSize: '20px',
                   fontWeight: 'bold',
-                  color: '#000080',
+                  color: ColorPalette.primaryBlue,
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   display: 'flex',
@@ -398,14 +402,14 @@ const Courses = () => {
                   justifyContent: 'center'
                 }}
                 onMouseEnter={(e) => {
-                  e.target.style.background = 'rgba(255, 165, 0, 1)';
+                  e.target.style.background = ColorPalette.secondaryBlue;
                   e.target.style.transform = 'translateY(-50%) scale(1.1)';
-                  e.target.style.boxShadow = '0 6px 20px rgba(255,215,0,0.4)';
+                  e.target.style.boxShadow = `0 6px 20px ${ColorPalette.beigeShadow}`;
                 }}
                 onMouseLeave={(e) => {
-                  e.target.style.background = 'rgba(255, 215, 0, 0.9)';
+                  e.target.style.background = ColorPalette.accentBeige;
                   e.target.style.transform = 'translateY(-50%) scale(1)';
-                  e.target.style.boxShadow = '0 4px 12px rgba(255,215,0,0.3)';
+                  e.target.style.boxShadow = `0 4px 12px ${ColorPalette.beigeShadow}`;
                 }}
               >
                 ›
@@ -421,15 +425,15 @@ const Courses = () => {
               to="/full-courses"
               className="btn btn-lg"
               style={{
-                background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                background: ColorPalette.beigeGradient,
                 border: 'none',
                 borderRadius: '35px',
-                color: '#000080',
+                color: ColorPalette.primaryBlue,
                 fontWeight: 'bold',
                 padding: '15px 40px',
                 fontSize: '1.1em',
                 transition: 'all 0.3s ease',
-                boxShadow: '0 8px 25px rgba(255,215,0,0.3)',
+                boxShadow: `0 8px 25px ${ColorPalette.beigeShadow}`,
                 textDecoration: 'none',
                 display: 'inline-flex',
                 alignItems: 'center',
@@ -437,11 +441,11 @@ const Courses = () => {
               }}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-3px) scale(1.05)';
-                e.target.style.boxShadow = '0 12px 35px rgba(255,215,0,0.4)';
+                e.target.style.boxShadow = `0 12px 35px ${ColorPalette.beigeShadow}`;
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0) scale(1)';
-                e.target.style.boxShadow = '0 8px 25px rgba(255,215,0,0.3)';
+                e.target.style.boxShadow = `0 8px 25px ${ColorPalette.beigeShadow}`;
               }}
             >
               <i className="bi bi-collection me-2"></i>

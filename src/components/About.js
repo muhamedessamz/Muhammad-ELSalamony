@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { FaChalkboardTeacher, FaUsers, FaLinkedin, FaGlobeAsia, FaCalendarAlt, FaPlayCircle, FaHandsHelping } from 'react-icons/fa';
+import { IoTime } from 'react-icons/io5';
+import ColorPalette from './ColorPalette';
 
 const About = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -48,7 +51,7 @@ const About = () => {
 
     return (
       <div className="h1 mb-3 animated-counter" style={{
-        color: 'rgba(255, 255, 255, 0.9)',
+        color: ColorPalette.lightText,
         fontWeight: 'bold',
         fontSize: '3rem',
         transition: 'all 0.3s ease'
@@ -63,36 +66,36 @@ const About = () => {
       target: 20000,
       label: 'Training Hours Delivered',
       description: 'Comprehensive programs across diverse topics',
-      icon: 'bi-clock-history'
+      icon: <IoTime />
     },
     {
       target: 20000,
       label: 'Trainees Impacted',
       description: 'Individuals empowered through professional training',
-      icon: 'bi-people-fill'
+      icon: <FaUsers />
     },
     {
       target: 11,
       label: 'Years in the Field',
       description: 'Proven expertise in banking and training',
-      icon: 'bi-calendar3'
+      icon: <FaCalendarAlt />
     },
     {
       target: 20000,
       label: 'Online Watching Hours',
       description: 'Global reach through digital learning platforms',
-      icon: 'bi-play-circle-fill'
+      icon: <FaPlayCircle />
     }
   ];
 
   return (
     <section id="about" className="py-5" style={{
-      background: 'linear-gradient(195deg, #0b1a61 0%, #1f2a89 40%, #d89a2d 100%)',
+      background: ColorPalette.blueGradient,
       minHeight: '100vh',
       position: 'relative',
       overflow: 'hidden',
       width: '100%',
-      color: '#FFFFFF'
+      color: ColorPalette.lightText
     }}>
       {/* Background decoration */}
       <div style={{
@@ -101,7 +104,7 @@ const About = () => {
         right: '-10%',
         width: '300px',
         height: '300px',
-        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%)',
+        background: 'radial-gradient(circle, rgba(210, 193, 182, 0.1) 0%, rgba(210, 193, 182, 0) 70%)',
         borderRadius: '50%',
         filter: 'blur(3px)'
       }}></div>
@@ -111,7 +114,7 @@ const About = () => {
         left: '-10%',
         width: '400px',
         height: '400px',
-        background: 'radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 70%)',
+        background: 'radial-gradient(circle, rgba(210, 193, 182, 0.1) 0%, rgba(210, 193, 182, 0) 70%)',
         borderRadius: '50%',
         filter: 'blur(5px)'
       }}></div>
@@ -120,18 +123,18 @@ const About = () => {
         {/* Section Header */}
         <div className="text-center mb-4 mb-md-5">
           <h2 className="display-5 fw-bold mb-3 about-title" style={{
-            color: '#FFFFFF',
-            textShadow: '3px 3px 6px rgba(0,0,0,0.8)',
+            color: ColorPalette.lightText,
+            textShadow: '3px 3px 6px rgba(27, 60, 83, 0.8)',
             marginBottom: '1rem',
             fontWeight: '700'
           }}>
             About Muhammad ELSalamony
           </h2>
           <p className="lead about-subtitle" style={{
-            color: '#FFFFFF',
+            color: ColorPalette.lightText,
             fontSize: '1.2rem',
             fontWeight: '400',
-            textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+            textShadow: '2px 2px 4px rgba(27, 60, 83, 0.7)'
           }}>
             Banking Professional & Certified Trainer with 11+ Years Experience
           </p>
@@ -143,30 +146,30 @@ const About = () => {
             <div className="component about-card" style={{
               background: 'rgba(255, 255, 255, 0.1)',
               backdropFilter: 'blur(15px)',
-              border: '2px solid rgba(255, 215, 0, 0.3)',
+              border: `2px solid ${ColorPalette.primaryBorder}`,
               borderRadius: '20px',
-              padding: '3rem',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.3)',
+              padding: '2rem',
+              boxShadow: `0 20px 40px ${ColorPalette.blueShadow}`,
               transition: 'all 0.3s ease'
             }}>
               <h3 className="h3 fw-bold mb-3 mb-md-4 about-section-title" style={{
-                color: '#FFFFFF',
+                color: ColorPalette.lightText,
                 textAlign: 'center',
                 fontSize: '2rem',
-                textShadow: '2px 2px 4px rgba(0,0,0,0.8)',
+                textShadow: '2px 2px 4px rgba(27, 60, 83, 0.8)',
                 fontWeight: '700'
               }}>
                 Professional Journey
               </h3>
 
-              <div className="row g-4">
+              <div className="row g-3">
                 <div className="col-12">
                   <p className="lead text-center about-intro-text" style={{
-                    color: '#FFFFFF',
+                    color: ColorPalette.lightText,
                     fontSize: '1.1rem',
-                    lineHeight: '1.8',
-                    marginBottom: '2rem',
-                    textShadow: '1px 1px 3px rgba(0,0,0,0.7)',
+                    lineHeight: '1.6',
+                    marginBottom: '1.5rem',
+                    textShadow: '1px 1px 3px rgba(27, 60, 83, 0.7)',
                     fontWeight: '400'
                   }}>
                     Muhammad ELSalamony is a banking professional and certified trainer with over 11 years of experience in banking and professional training.
@@ -174,19 +177,43 @@ const About = () => {
                 </div>
 
                 <div className="col-md-6 mb-3 mb-md-0">
-                  <div className="d-flex align-items-start mb-3 about-point">
-                    <i className="bi bi-globe me-3" style={{
-                      color: '#d89a2d',
-                      fontSize: '1.5rem',
-                      marginTop: '4px',
+                  <div className="d-flex align-items-start mb-3 about-point" 
+                    style={{
+                      background: `linear-gradient(135deg, ${ColorPalette.primaryBlue}20, ${ColorPalette.secondaryBlue}10)`,
+                      borderRadius: '12px',
+                      padding: '1.2rem',
+                      transition: 'all 0.3s ease',
+                      border: `1px solid ${ColorPalette.primaryBorder}`
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = `0 8px 20px ${ColorPalette.blueShadow}60`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}>
+                    <div style={{
+                      background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
+                      borderRadius: '50%',
+                      width: '45px',
+                      height: '45px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       flexShrink: 0
-                    }}></i>
+                    }} className="me-3">
+                      <div style={{ color: ColorPalette.primaryText, fontSize: '1.3rem' }}>
+                        <FaGlobeAsia />
+                      </div>
+                    </div>
                     <p className="about-point-text" style={{
-                      color: '#FFFFFF',
-                      lineHeight: '1.7',
+                      color: ColorPalette.lightText,
+                      lineHeight: '1.6',
                       margin: 0,
-                      textShadow: '1px 1px 3px rgba(0,0,0,0.7)',
-                      fontWeight: '400'
+                      textShadow: '1px 1px 3px rgba(27, 60, 83, 0.7)',
+                      fontWeight: '400',
+                      fontSize: '0.95rem'
                     }}>
                       Collaborates with leading learning platforms in the Arab world such as Almentor, Yanfaa, Career180, EYouth, and Learnkhana, as well as the global platform Udemy.
                     </p>
@@ -194,19 +221,43 @@ const About = () => {
                 </div>
 
                 <div className="col-md-6">
-                  <div className="d-flex align-items-start mb-3 about-point">
-                    <i className="bi bi-people-fill me-3" style={{
-                      color: '#d89a2d',
-                      fontSize: '1.5rem',
-                      marginTop: '4px',
+                  <div className="d-flex align-items-start mb-3 about-point"
+                    style={{
+                      background: `linear-gradient(135deg, ${ColorPalette.primaryBlue}20, ${ColorPalette.secondaryBlue}10)`,
+                      borderRadius: '12px',
+                      padding: '1.2rem',
+                      transition: 'all 0.3s ease',
+                      border: `1px solid ${ColorPalette.primaryBorder}`
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = `0 8px 20px ${ColorPalette.blueShadow}60`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}>
+                    <div style={{
+                      background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
+                      borderRadius: '50%',
+                      width: '45px',
+                      height: '45px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       flexShrink: 0
-                    }}></i>
+                    }} className="me-3">
+                      <div style={{ color: ColorPalette.primaryText, fontSize: '1.3rem' }}>
+                        <FaUsers />
+                      </div>
+                    </div>
                     <p className="about-point-text" style={{
-                      color: '#FFFFFF',
-                      lineHeight: '1.7',
+                      color: ColorPalette.lightText,
+                      lineHeight: '1.6',
                       margin: 0,
-                      textShadow: '1px 1px 3px rgba(0,0,0,0.7)',
-                      fontWeight: '400'
+                      textShadow: '1px 1px 3px rgba(27, 60, 83, 0.7)',
+                      fontWeight: '400',
+                      fontSize: '0.95rem'
                     }}>
                       Passionate about empowering youth and simplifying banking & financial concepts, has trained over 20,000 individuals, helping them advance their careers.
                     </p>
@@ -214,20 +265,44 @@ const About = () => {
                 </div>
 
                 <div className="col-12 mt-2 mt-md-0">
-                  <div className="d-flex align-items-start justify-content-center about-point about-highlight">
-                    <i className="bi bi-linkedin me-3" style={{
-                      color: '#d89a2d',
-                      fontSize: '1.5rem',
-                      marginTop: '4px',
+                  <div className="d-flex align-items-start justify-content-center about-point about-highlight"
+                    style={{
+                      background: `linear-gradient(135deg, ${ColorPalette.accentBeige}20, ${ColorPalette.offWhite}10)`,
+                      borderRadius: '12px',
+                      padding: '1.2rem',
+                      transition: 'all 0.3s ease',
+                      border: `1px solid ${ColorPalette.accentBorder}`
+                    }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.transform = 'translateY(-3px)';
+                      e.currentTarget.style.boxShadow = `0 8px 20px ${ColorPalette.beigeShadow}60`;
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.transform = 'translateY(0)';
+                      e.currentTarget.style.boxShadow = 'none';
+                    }}>
+                    <div style={{
+                      background: `linear-gradient(45deg, ${ColorPalette.primaryBlue}, ${ColorPalette.secondaryBlue})`,
+                      borderRadius: '50%',
+                      width: '45px',
+                      height: '45px',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
                       flexShrink: 0
-                    }}></i>
+                    }} className="me-3">
+                      <div style={{ color: ColorPalette.offWhite, fontSize: '1.3rem' }}>
+                        <FaHandsHelping />
+                      </div>
+                    </div>
                     <p className="about-highlight-text" style={{
-                      color: 'rgba(255,255,255,0.9)',
-                      lineHeight: '1.7',
+                      color: 'rgba(249, 243, 239, 0.9)',
+                      lineHeight: '1.6',
                       margin: 0,
                       textAlign: 'center',
                       maxWidth: '600px',
-                      fontWeight: '500'
+                      fontWeight: '500',
+                      fontSize: '0.95rem'
                     }}>
                       Recognized as an influencer on LinkedIn in financial literacy, banking services, and financial freedom.
                     </p>
@@ -275,23 +350,23 @@ const About = () => {
           
           .about-intro-text {
             font-size: 0.95rem !important;
-            line-height: 1.6 !important;
-            margin-bottom: 1.5rem !important;
+            line-height: 1.5 !important;
+            margin-bottom: 1.2rem !important;
             padding: 0 0.5rem;
           }
           
           .about-point {
-            margin-bottom: 1.5rem !important;
+            margin-bottom: 1.2rem !important;
           }
           
           .about-point-text {
             font-size: 0.9rem !important;
-            line-height: 1.6 !important;
+            line-height: 1.5 !important;
           }
           
           .about-highlight-text {
-            font-size: 0.95rem !important;
-            line-height: 1.6 !important;
+            font-size: 0.9rem !important;
+            line-height: 1.5 !important;
             text-align: left !important;
           }
           
@@ -330,7 +405,16 @@ const About = () => {
           }
           
           .about-highlight-text {
-            font-size: 0.9rem !important;
+            font-size: 0.85rem !important;
+          }
+          
+          .about-point {
+            padding: 1rem !important;
+          }
+          
+          .about-point-text, .about-highlight-text {
+            font-size: 0.85rem !important;
+            line-height: 1.4 !important;
           }
         }
       `}</style>

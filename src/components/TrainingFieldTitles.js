@@ -1,10 +1,11 @@
 import React from 'react';
+import ColorPalette from './ColorPalette';
 
 const TrainingFieldTitles = () => {
     return (
         <section id="training-field-titles" className="py-5" style={{
-            background: 'linear-gradient(90deg, #0b1a61 0%, #1f2a89 50%, #d89a2d 100%)',
-            color: '#FFFFFF',
+            background: ColorPalette.blueGradient,
+            color: ColorPalette.lightText,
             position: 'relative',
             overflow: 'hidden',
             minHeight: '100vh'
@@ -16,7 +17,7 @@ const TrainingFieldTitles = () => {
                 right: '-3%',
                 width: '200px',
                 height: '200px',
-                background: 'linear-gradient(45deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1))',
+                background: `linear-gradient(45deg, ${ColorPalette.accentBeige}20, ${ColorPalette.accentBeige}10)`,
                 borderRadius: '50%',
                 filter: 'blur(2px)'
             }}></div>
@@ -26,7 +27,7 @@ const TrainingFieldTitles = () => {
                 left: '-5%',
                 width: '300px',
                 height: '300px',
-                background: 'linear-gradient(45deg, rgba(255,215,0,0.15), rgba(255,215,0,0.08))',
+                background: `linear-gradient(45deg, ${ColorPalette.accentBeige}15, ${ColorPalette.accentBeige}08)`,
                 borderRadius: '50%',
                 filter: 'blur(3px)'
             }}></div>
@@ -35,19 +36,19 @@ const TrainingFieldTitles = () => {
                 <div className="row justify-content-center">
                     <div className="col-lg-8">
                         <div style={{
-                            background: 'rgba(255, 255, 255, 0.95)',
+                            background: ColorPalette.lightBlueBackground,
                             backdropFilter: 'blur(15px)',
-                            border: '2px solid rgba(255,215,0,0.4)',
+                            border: `2px solid ${ColorPalette.accentBorder}`,
                             borderRadius: '25px',
                             padding: '3rem',
-                            boxShadow: '0 25px 50px rgba(0,0,0,0.3)',
+                            boxShadow: `0 25px 50px ${ColorPalette.blueShadow}`,
                             textAlign: 'center'
                         }}>
                             <h2 className="h2 fw-bold mb-5" style={{
-                                color: '#2c3e50',
+                                color: ColorPalette.lightText,
                                 fontSize: '2.2rem',
-                                textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
-                                borderBottom: '4px solid #FFD700',
+                                textShadow: `2px 2px 4px ${ColorPalette.blueShadow}`,
+                                borderBottom: `4px solid ${ColorPalette.accentBeige}`,
                                 paddingBottom: '15px',
                                 marginBottom: '3rem'
                             }}>
@@ -58,11 +59,11 @@ const TrainingFieldTitles = () => {
                                 {/* Trainer/Instructor */}
                                 <div className="col-md-6">
                                     <div style={{
-                                        background: 'linear-gradient(135deg, #0b1a61 0%, #1f2a89 100%)',
+                                        background: `linear-gradient(135deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 100%)`,
                                         borderRadius: '20px',
                                         padding: '2.5rem',
-                                        color: 'white',
-                                        boxShadow: '0 15px 30px rgba(11,26,97,0.3)',
+                                        color: ColorPalette.lightText,
+                                        boxShadow: `0 15px 30px ${ColorPalette.blueShadow}60`,
                                         transition: 'all 0.3s ease',
                                         height: '100%',
                                         display: 'flex',
@@ -71,26 +72,26 @@ const TrainingFieldTitles = () => {
                                     }}
                                         onMouseEnter={(e) => {
                                             e.currentTarget.style.transform = 'translateY(-8px)';
-                                            e.currentTarget.style.boxShadow = '0 20px 40px rgba(11,26,97,0.4)';
+                                            e.currentTarget.style.boxShadow = `0 20px 40px ${ColorPalette.blueShadow}80`;
                                         }}
                                         onMouseLeave={(e) => {
                                             e.currentTarget.style.transform = 'translateY(0)';
-                                            e.currentTarget.style.boxShadow = '0 15px 30px rgba(11,26,97,0.3)';
+                                            e.currentTarget.style.boxShadow = `0 15px 30px ${ColorPalette.blueShadow}60`;
                                         }}>
                                         <div className="mb-3">
                                             <i className="bi bi-mortarboard-fill" style={{
                                                 fontSize: '3.5rem',
-                                                color: '#d89a2d',
+                                                color: ColorPalette.accentBeige,
                                                 marginBottom: '1rem'
                                             }}></i>
                                         </div>
                                         <h3 className="h4 fw-bold mb-3" style={{
-                                            color: '#FFFFFF',
+                                            color: ColorPalette.lightText,
                                             fontSize: '1.5rem',
-                                            textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+                                            textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`
                                         }}>Trainer/Instructor</h3>
                                         <p className="mb-0" style={{
-                                            color: 'rgba(255, 255, 255, 0.95)',
+                                            color: ColorPalette.accentText,
                                             fontSize: '1.1rem',
                                             lineHeight: '1.6',
                                             fontWeight: '500'
@@ -103,11 +104,11 @@ const TrainingFieldTitles = () => {
                                 {/* Coach/Consultant */}
                                 <div className="col-md-6">
                                     <div style={{
-                                        background: 'linear-gradient(135deg, #d89a2d 0%, #b8841f 100%)',
+                                        background: `linear-gradient(135deg, ${ColorPalette.accentBeige} 0%, ${ColorPalette.offWhite} 100%)`,
                                         borderRadius: '20px',
                                         padding: '2.5rem',
-                                        color: 'white',
-                                        boxShadow: '0 15px 30px rgba(216,154,45,0.3)',
+                                        color: ColorPalette.primaryText,
+                                        boxShadow: `0 15px 30px ${ColorPalette.beigeShadow}`,
                                         transition: 'all 0.3s ease',
                                         height: '100%',
                                         display: 'flex',
@@ -116,26 +117,26 @@ const TrainingFieldTitles = () => {
                                     }}
                                         onMouseEnter={(e) => {
                                             e.currentTarget.style.transform = 'translateY(-8px)';
-                                            e.currentTarget.style.boxShadow = '0 20px 40px rgba(216,154,45,0.4)';
+                                            e.currentTarget.style.boxShadow = `0 20px 40px ${ColorPalette.beigeShadow}80`;
                                         }}
                                         onMouseLeave={(e) => {
                                             e.currentTarget.style.transform = 'translateY(0)';
-                                            e.currentTarget.style.boxShadow = '0 15px 30px rgba(216,154,45,0.3)';
+                                            e.currentTarget.style.boxShadow = `0 15px 30px ${ColorPalette.beigeShadow}`;
                                         }}>
                                         <div className="mb-3">
                                             <i className="bi bi-person-badge-fill" style={{
                                                 fontSize: '3.5rem',
-                                                color: '#1f2a89',
+                                                color: ColorPalette.primaryBlue,
                                                 marginBottom: '1rem'
                                             }}></i>
                                         </div>
                                         <h3 className="h4 fw-bold mb-3" style={{
-                                            color: '#FFFFFF',
+                                            color: ColorPalette.primaryText,
                                             fontSize: '1.5rem',
-                                            textShadow: '1px 1px 2px rgba(0,0,0,0.3)'
+                                            textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`
                                         }}>Coach/Consultant</h3>
                                         <p className="mb-0" style={{
-                                            color: 'rgba(255, 255, 255, 0.95)',
+                                            color: ColorPalette.secondaryText,
                                             fontSize: '1.1rem',
                                             lineHeight: '1.6',
                                             fontWeight: '500'

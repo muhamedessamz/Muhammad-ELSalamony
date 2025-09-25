@@ -1,4 +1,5 @@
 import React from 'react';
+import ColorPalette from './ColorPalette';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -11,49 +12,54 @@ const Footer = () => {
             <div className="d-flex justify-content-center gap-4 mb-3">
               <a 
                 href="#" 
-                className="text-decoration-none text-white-50 hover-gradient"
+                className="text-decoration-none hover-gradient"
                 aria-label="Facebook"
+                style={{ color: 'rgba(249, 243, 239, 0.7)' }}
               >
                 <i className="bi bi-facebook fs-4"></i>
               </a>
               <a 
                 href="#" 
-                className="text-decoration-none text-white-50 hover-gradient"
+                className="text-decoration-none hover-gradient"
                 aria-label="LinkedIn"
+                style={{ color: 'rgba(249, 243, 239, 0.7)' }}
               >
                 <i className="bi bi-linkedin fs-4"></i>
               </a>
               <a 
                 href="#" 
-                className="text-decoration-none text-white-50 hover-gradient"
+                className="text-decoration-none hover-gradient"
                 aria-label="Twitter"
+                style={{ color: 'rgba(249, 243, 239, 0.7)' }}
               >
                 <i className="bi bi-twitter-x fs-4"></i>
               </a>
               <a 
                 href="#" 
-                className="text-decoration-none text-white-50 hover-gradient"
+                className="text-decoration-none hover-gradient"
                 aria-label="Instagram"
+                style={{ color: 'rgba(249, 243, 239, 0.7)' }}
               >
                 <i className="bi bi-instagram fs-4"></i>
               </a>
             </div>
             
-            <p className="text-white-50 mb-0">
+            <p className="mb-0" style={{ color: 'rgba(249, 243, 239, 0.7)' }}>
               &copy; {currentYear} Muhammad ELSalamony. All rights reserved.
             </p>
             
             <div className="mt-3">
               <a 
                 href="#" 
-                className="btn btn-sm btn-outline-light rounded-pill px-3 py-1"
+                className="btn btn-sm rounded-pill px-3 py-1"
                 style={{
                   background: 'transparent',
-                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  border: `1px solid ${ColorPalette.accentBeige}40`,
                   transition: 'all 0.3s ease',
                   fontSize: '0.8rem',
                   textTransform: 'uppercase',
-                  letterSpacing: '1px'
+                  letterSpacing: '1px',
+                  color: ColorPalette.lightText
                 }}
               >
                 Contact Me
@@ -65,8 +71,8 @@ const Footer = () => {
       
       <style jsx>{`
         footer {
-          background: linear-gradient(135deg, rgba(10, 25, 47, 0.95), rgba(8, 21, 40, 0.98));
-          border-top: 1px solid rgba(255, 255, 255, 0.05);
+          background: ${ColorPalette.primaryBlue};
+          border-top: 1px solid ${ColorPalette.primaryBorder};
           position: relative;
         }
         
@@ -77,7 +83,7 @@ const Footer = () => {
           left: 0;
           right: 0;
           height: 2px;
-          background: linear-gradient(90deg, transparent, #FFD700, #FFA500, transparent);
+          background: ${ColorPalette.beigeGradient};
           opacity: 0.5;
         }
         
@@ -87,15 +93,15 @@ const Footer = () => {
         }
         
         .hover-gradient:hover {
-          color: #FFD700 !important;
+          color: ${ColorPalette.accentBeige} !important;
           transform: translateY(-2px);
         }
         
         .btn-outline-light:hover {
-          background: linear-gradient(135deg, #FFD700, #FFA500) !important;
+          background: ${ColorPalette.beigeGradient} !important;
           border-color: transparent !important;
-          color: #0a192f !important;
-          box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+          color: ${ColorPalette.primaryBlue} !important;
+          box-shadow: 0 5px 15px ${ColorPalette.beigeShadow};
         }
         
         @media (max-width: 768px) {

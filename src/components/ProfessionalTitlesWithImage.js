@@ -1,9 +1,11 @@
 import React from 'react';
+import { FaGraduationCap, FaPencilAlt, FaUniversity, FaHeart } from 'react-icons/fa';
+import ColorPalette from './ColorPalette';
 
 const ProfessionalTitlesWithImage = () => {
     return (
         <section id="professional-titles-with-image" className="py-5" style={{
-            background: 'linear-gradient(135deg, #0b1a61 0%, #1f2a89 25%, #d89a2d 100%)',
+            background: ColorPalette.blueGradient,
             minHeight: '100vh',
             position: 'relative',
             overflow: 'hidden'
@@ -15,7 +17,7 @@ const ProfessionalTitlesWithImage = () => {
                 right: '-5%',
                 width: '200px',
                 height: '200px',
-                background: 'linear-gradient(45deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1))',
+                background: `linear-gradient(45deg, ${ColorPalette.accentBeige}33, ${ColorPalette.accentBeige}1a)`,
                 borderRadius: '50%',
                 filter: 'blur(3px)'
             }}></div>
@@ -25,7 +27,7 @@ const ProfessionalTitlesWithImage = () => {
                 left: '-8%',
                 width: '300px',
                 height: '300px',
-                background: 'linear-gradient(45deg, rgba(255,215,0,0.15), rgba(255,215,0,0.08))',
+                background: `linear-gradient(45deg, ${ColorPalette.accentBeige}26, ${ColorPalette.accentBeige}14)`,
                 borderRadius: '50%',
                 filter: 'blur(5px)'
             }}></div>
@@ -38,10 +40,10 @@ const ProfessionalTitlesWithImage = () => {
                             margin: '0 auto',
                             overflow: 'hidden',
                             borderRadius: '20px',
-                            boxShadow: '0 25px 50px rgba(0,0,0,0.3)',
-                            background: 'rgba(255, 215, 0, 0.15)',
+                            boxShadow: `0 25px 50px ${ColorPalette.blueShadow}`,
+                            background: `${ColorPalette.accentBeige}26`,
                             backdropFilter: 'blur(15px)',
-                            border: '2px solid rgba(255, 215, 0, 0.3)',
+                            border: `2px solid ${ColorPalette.accentBorder}`,
                             padding: '10px'
                         }}>
                             <img
@@ -57,20 +59,20 @@ const ProfessionalTitlesWithImage = () => {
                     </div>
                     <div className="col-lg-6">
                         <div style={{
-                            background: 'rgba(255, 255, 255, 0.95)',
+                            background: ColorPalette.lightBlueBackground,
                             backdropFilter: 'blur(20px)',
-                            border: '2px solid rgba(255, 215, 0, 0.4)',
+                            border: `2px solid ${ColorPalette.accentBorder}`,
                             borderRadius: '20px',
                             padding: '2.5rem',
-                            boxShadow: '0 25px 50px rgba(0,0,0,0.3)'
+                            boxShadow: `0 25px 50px ${ColorPalette.blueShadow}`
                         }}>
                             <h2 className="h3 fw-bold mb-4" style={{
-                                color: '#2c3e50',
+                                color: ColorPalette.lightText,
                                 fontSize: '2.2rem',
-                                textShadow: '2px 2px 4px rgba(0,0,0,0.1)',
+                                textShadow: `2px 2px 4px ${ColorPalette.blueShadow}`,
                                 textAlign: 'center',
                                 marginBottom: '2rem',
-                                borderBottom: '3px solid #FFD700',
+                                borderBottom: `3px solid ${ColorPalette.accentBeige}`,
                                 paddingBottom: '15px',
                                 display: 'inline-block',
                                 width: '100%'
@@ -80,7 +82,7 @@ const ProfessionalTitlesWithImage = () => {
                             <div className="titles-list" style={{ lineHeight: '1.8' }}>
                                 <div className="d-flex align-items-start mb-4">
                                     <div className="me-3" style={{
-                                        background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                                        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
                                         borderRadius: '50%',
                                         width: '35px',
                                         height: '35px',
@@ -89,24 +91,26 @@ const ProfessionalTitlesWithImage = () => {
                                         justifyContent: 'center',
                                         flexShrink: 0
                                     }}>
-                                        <i className="bi bi-check" style={{ color: 'white', fontSize: '1.1rem' }}></i>
+                                        <div style={{ color: ColorPalette.primaryText, fontSize: '1.1rem' }}>
+                                            <FaGraduationCap />
+                                        </div>
                                     </div>
                                     <div>
                                         <h3 className="h6 fw-bold mb-2" style={{
-                                            color: '#2c3e50',
+                                            color: ColorPalette.lightText,
                                             fontSize: '1.1rem',
-                                            textShadow: '1px 1px 2px rgba(0,0,0,0.1)'
-                                        }}>Senior Credit Analyst</h3>
+                                            textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`
+                                        }}>Professional Certified Trainer</h3>
                                         <p className="mb-0" style={{
-                                            color: '#5a6c7d',
+                                            color: ColorPalette.accentText,
                                             fontSize: '0.95rem',
                                             lineHeight: '1.6'
-                                        }}>Analyzing financial statements and creditworthiness of corporate clients</p>
+                                        }}></p>
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-start mb-4">
                                     <div className="me-3" style={{
-                                        background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                                        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
                                         borderRadius: '50%',
                                         width: '35px',
                                         height: '35px',
@@ -115,24 +119,26 @@ const ProfessionalTitlesWithImage = () => {
                                         justifyContent: 'center',
                                         flexShrink: 0
                                     }}>
-                                        <i className="bi bi-check" style={{ color: 'white', fontSize: '1.1rem' }}></i>
+                                        <div style={{ color: ColorPalette.primaryText, fontSize: '1.1rem' }}>
+                                            <FaPencilAlt />
+                                        </div>
                                     </div>
                                     <div>
                                         <h3 className="h6 fw-bold mb-2" style={{
-                                            color: '#2c3e50',
+                                            color: ColorPalette.lightText,
                                             fontSize: '1.1rem',
-                                            textShadow: '1px 1px 2px rgba(0,0,0,0.1)'
-                                        }}>Branch Manager</h3>
+                                            textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`
+                                        }}>Professional Instructional Designer</h3>
                                         <p className="mb-0" style={{
-                                            color: '#5a6c7d',
+                                            color: ColorPalette.accentText,
                                             fontSize: '0.95rem',
                                             lineHeight: '1.6'
-                                        }}>Leading branch operations and managing a team of banking professionals</p>
+                                        }}></p>
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-start mb-4">
                                     <div className="me-3" style={{
-                                        background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                                        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
                                         borderRadius: '50%',
                                         width: '35px',
                                         height: '35px',
@@ -141,24 +147,26 @@ const ProfessionalTitlesWithImage = () => {
                                         justifyContent: 'center',
                                         flexShrink: 0
                                     }}>
-                                        <i className="bi bi-check" style={{ color: 'white', fontSize: '1.1rem' }}></i>
+                                        <div style={{ color: ColorPalette.primaryText, fontSize: '1.1rem' }}>
+                                            <FaUniversity />
+                                        </div>
                                     </div>
                                     <div>
                                         <h3 className="h6 fw-bold mb-2" style={{
-                                            color: '#2c3e50',
+                                            color: ColorPalette.lightText,
                                             fontSize: '1.1rem',
-                                            textShadow: '1px 1px 2px rgba(0,0,0,0.1)'
-                                        }}>Relationship Manager</h3>
+                                            textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`
+                                        }}>Experienced Banking Professional</h3>
                                         <p className="mb-0" style={{
-                                            color: '#5a6c7d',
+                                            color: ColorPalette.accentText,
                                             fontSize: '0.95rem',
                                             lineHeight: '1.6'
-                                        }}>Building and maintaining relationships with high-net-worth clients</p>
+                                        }}></p>
                                     </div>
                                 </div>
                                 <div className="d-flex align-items-start">
                                     <div className="me-3" style={{
-                                        background: 'linear-gradient(45deg, #FFD700, #FFA500)',
+                                        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}, ${ColorPalette.offWhite})`,
                                         borderRadius: '50%',
                                         width: '35px',
                                         height: '35px',
@@ -167,19 +175,21 @@ const ProfessionalTitlesWithImage = () => {
                                         justifyContent: 'center',
                                         flexShrink: 0
                                     }}>
-                                        <i className="bi bi-check" style={{ color: 'white', fontSize: '1.1rem' }}></i>
+                                        <div style={{ color: ColorPalette.primaryText, fontSize: '1.1rem' }}>
+                                            <FaHeart />
+                                        </div>
                                     </div>
                                     <div>
                                         <h3 className="h6 fw-bold mb-2" style={{
-                                            color: '#2c3e50',
+                                            color: ColorPalette.lightText,
                                             fontSize: '1.1rem',
-                                            textShadow: '1px 1px 2px rgba(0,0,0,0.1)'
-                                        }}>Corporate Banking Specialist</h3>
+                                            textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`
+                                        }}>Mentor & Financial literacy Trainer</h3>
                                         <p className="mb-0" style={{
-                                            color: '#5a6c7d',
+                                            color: ColorPalette.accentText,
                                             fontSize: '0.95rem',
                                             lineHeight: '1.6'
-                                        }}>Structuring complex financial solutions for corporate clients</p>
+                                        }}></p>
                                     </div>
                                 </div>
                             </div>

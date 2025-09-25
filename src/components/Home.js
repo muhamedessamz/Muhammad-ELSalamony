@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import backgroundImg from '../assets/images/main profile/main.png';
+import ColorPalette from './ColorPalette';
 
 const Home = () => {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,12 +16,12 @@ const Home = () => {
         id="home"
         className={`hero-section d-flex align-items-center justify-content-center position-relative overflow-hidden ${isVisible ? 'visible' : ''}`}
         style={{
-          backgroundImage: `linear-gradient(rgba(10, 25, 47, 0.7), rgba(10, 25, 47, 0.5)), url(${backgroundImg})`,
+          backgroundImage: `linear-gradient(rgba(27, 60, 83, 0.4), rgba(27, 60, 83, 0.2)), url(${backgroundImg})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundAttachment: 'fixed',
           minHeight: '100vh',
-          color: '#e6f1ff',
+          color: ColorPalette.lightText,
           position: 'relative',
           transition: 'all 0.5s ease-in-out'
         }}
@@ -32,7 +33,7 @@ const Home = () => {
                 <h1 className="display-4 fw-bold mb-3" style={{ lineHeight: '1.2' }}>
                   <span className="gradient-text">Muhammad ELSalamony</span>
                 </h1>
-                <h2 className="h4 mb-4" style={{ fontWeight: 300, color: 'rgba(230, 241, 255, 0.9)' }}>
+                <h2 className="h4 mb-4" style={{ fontWeight: 300, color: 'rgba(249, 243, 239, 0.9)' }}>
                   Professional Trainer & Banking Expert
                 </h2>
                 <div className="d-flex justify-content-center gap-3 flex-wrap">
@@ -40,6 +41,7 @@ const Home = () => {
                     href="#about"
                     className="btn btn-primary btn-lg px-4 py-2"
                     style={{
+                      background: ColorPalette.blueGradient,
                       borderRadius: '50px',
                       fontWeight: '500',
                       textTransform: 'uppercase',
@@ -64,9 +66,11 @@ const Home = () => {
                       textTransform: 'uppercase',
                       letterSpacing: '1px',
                       transition: 'all 0.3s ease',
-                      border: '2px solid rgba(230, 241, 255, 0.3)',
+                      border: `2px solid ${ColorPalette.lightText}`,
                       fontSize: '0.9rem',
-                      padding: '0.5rem 1.8rem'
+                      padding: '0.5rem 1.8rem',
+                      color: ColorPalette.lightText,
+                      background: 'transparent'
                     }}
                   >
                     Contact Us
@@ -99,7 +103,7 @@ const Home = () => {
           }
           
           .gradient-text {
-            background: linear-gradient(135deg, #FFD700, #FFA500);
+            background: ${ColorPalette.beigeGradient};
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: inline-block;
@@ -119,7 +123,7 @@ const Home = () => {
           .mouse {
             width: 24px;
             height: 40px;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid ${ColorPalette.lightText}4d;
             border-radius: 16px;
             display: flex;
             margin: 0 auto;
@@ -130,7 +134,7 @@ const Home = () => {
             display: block;
             width: 4px;
             height: 8px;
-            background: #FFD700;
+            background: ${ColorPalette.accentBeige};
             border-radius: 50%;
             margin: 5px auto;
             animation: scroll 2s infinite;

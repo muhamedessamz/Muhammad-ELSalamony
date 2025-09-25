@@ -1,12 +1,14 @@
 import React from 'react';
+import { FaPalette, FaRocket, FaTachometerAlt, FaDollarSign, FaCode, FaHandsHelping } from 'react-icons/fa';
+import { IoCheckmarkCircle } from 'react-icons/io5';
+import ColorPalette from './ColorPalette';
 
 const TrainingTopics = () => {
     const trainingTopics = [
         {
             id: 1,
             category: 'PERSONAL BRANDING',
-            icon: 'bi-person-badge',
-            color: '#3498db',
+            icon: <FaPalette />,
             topics: [
                 'Self-Marketing & Personal Branding',
                 'Personal branding inside workplace'
@@ -15,8 +17,7 @@ const TrainingTopics = () => {
         {
             id: 2,
             category: 'CAREER DEVELOPMENT',
-            icon: 'bi-briefcase',
-            color: '#e74c3c',
+            icon: <FaRocket />,
             topics: [
                 'Career Planning',
                 'Resume Branding',
@@ -27,8 +28,7 @@ const TrainingTopics = () => {
         {
             id: 3,
             category: 'PRODUCTIVITY TOPIC',
-            icon: 'bi-graph-up',
-            color: '#28a745',
+            icon: <FaTachometerAlt />,
             topics: [
                 'Time Management and increase productivity',
                 'Google tools and Gmail tips and tricks'
@@ -37,8 +37,7 @@ const TrainingTopics = () => {
         {
             id: 4,
             category: 'BANKING AND PERSONAL FINANCE',
-            icon: 'bi-bank',
-            color: '#f39c12',
+            icon: <FaDollarSign />,
             topics: [
                 'Personal Financial Planning',
                 'Banking for Non Bankers',
@@ -48,9 +47,8 @@ const TrainingTopics = () => {
         },
         {
             id: 5,
-            category: 'CAREER DEVELOPMENT #2',
-            icon: 'bi-laptop',
-            color: '#9b59b6',
+            category: 'CAREER DEVELOPMENT',
+            icon: <FaCode />,
             topics: [
                 'Freelancing Skills',
                 'Portfolio Building'
@@ -59,8 +57,7 @@ const TrainingTopics = () => {
         {
             id: 6,
             category: 'VOLUNTARY SKILLS',
-            icon: 'bi-heart',
-            color: '#e67e22',
+            icon: <FaHandsHelping />,
             topics: [
                 'How to Inbound your charity organization?',
                 'How to be a super volunteer?'
@@ -70,8 +67,8 @@ const TrainingTopics = () => {
 
     return (
         <section id="training-topics" className="py-5" style={{
-            background: 'linear-gradient(225deg, #0b1a61 0%, #1f2a89 45%, #d89a2d 100%)',
-            color: '#FFFFFF',
+            background: `linear-gradient(225deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 45%, ${ColorPalette.accentBeige} 100%)`,
+            color: ColorPalette.lightText,
             position: 'relative',
             overflow: 'hidden',
             minHeight: '100vh'
@@ -83,7 +80,7 @@ const TrainingTopics = () => {
                 right: '-5%',
                 width: '300px',
                 height: '300px',
-                background: 'linear-gradient(45deg, rgba(255,215,0,0.1), rgba(255,215,0,0.05))',
+                background: `linear-gradient(45deg, ${ColorPalette.accentBeige}1a, ${ColorPalette.accentBeige}0d)`,
                 borderRadius: '50%',
                 filter: 'blur(3px)'
             }}></div>
@@ -93,7 +90,7 @@ const TrainingTopics = () => {
                 left: '-7%',
                 width: '400px',
                 height: '400px',
-                background: 'linear-gradient(45deg, rgba(255,215,0,0.08), rgba(255,215,0,0.03))',
+                background: `linear-gradient(45deg, ${ColorPalette.accentBeige}14, ${ColorPalette.accentBeige}08)`,
                 borderRadius: '50%',
                 filter: 'blur(4px)'
             }}></div>
@@ -103,10 +100,10 @@ const TrainingTopics = () => {
                     <div className="col-lg-10">
                         <div className="text-center mb-5">
                             <h2 className="h2 fw-bold mb-4" style={{
-                                color: '#FFD700',
+                                color: ColorPalette.accentBeige,
                                 fontSize: '2.2rem',
-                                textShadow: '2px 2px 4px rgba(0,0,0,0.3)',
-                                borderBottom: '4px solid #FFD700',
+                                textShadow: `2px 2px 4px ${ColorPalette.blueShadow}`,
+                                borderBottom: `4px solid ${ColorPalette.accentBeige}`,
                                 paddingBottom: '15px',
                                 display: 'inline-block'
                             }}>
@@ -120,11 +117,11 @@ const TrainingTopics = () => {
                                     <div style={{
                                         background: 'rgba(255, 255, 255, 0.1)',
                                         backdropFilter: 'blur(15px)',
-                                        border: `2px solid ${topic.color}30`,
+                                        border: '2px solid rgba(255, 255, 255, 0.1)',
                                         borderRadius: '20px',
                                         padding: '2rem',
                                         textAlign: 'left',
-                                        boxShadow: '0 15px 30px rgba(0,0,0,0.2)',
+                                        boxShadow: `0 15px 30px ${ColorPalette.blueShadow}`,
                                         transition: 'all 0.3s ease',
                                         height: '100%',
                                         position: 'relative',
@@ -132,19 +129,19 @@ const TrainingTopics = () => {
                                     }}
                                         onMouseEnter={(e) => {
                                             e.currentTarget.style.transform = 'translateY(-8px)';
-                                            e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.3)';
-                                            e.currentTarget.style.borderColor = topic.color;
+                                            e.currentTarget.style.boxShadow = `0 25px 50px ${ColorPalette.blueShadow}`;
+                                            e.currentTarget.style.border = `2px solid ${ColorPalette.accentBeige}`;
                                         }}
                                         onMouseLeave={(e) => {
                                             e.currentTarget.style.transform = 'translateY(0)';
-                                            e.currentTarget.style.boxShadow = '0 15px 30px rgba(0,0,0,0.2)';
-                                            e.currentTarget.style.borderColor = `${topic.color}30`;
+                                            e.currentTarget.style.boxShadow = `0 15px 30px ${ColorPalette.blueShadow}`;
+                                            e.currentTarget.style.border = '2px solid rgba(255, 255, 255, 0.1)';
                                         }}>
 
                                         {/* Icon */}
                                         <div className="d-flex align-items-center mb-3">
                                             <div style={{
-                                                background: topic.color,
+                                                background: ColorPalette.beigeGradient,
                                                 borderRadius: '50%',
                                                 width: '50px',
                                                 height: '50px',
@@ -152,19 +149,21 @@ const TrainingTopics = () => {
                                                 alignItems: 'center',
                                                 justifyContent: 'center',
                                                 marginRight: '15px',
-                                                boxShadow: '0 4px 15px rgba(0,0,0,0.3)'
+                                                boxShadow: `0 4px 15px ${ColorPalette.blueShadow}`
                                             }}>
-                                                <i className={topic.icon} style={{
+                                                <div style={{
                                                     fontSize: '1.5rem',
-                                                    color: 'white'
-                                                }}></i>
+                                                    color: ColorPalette.primaryBlue
+                                                }}>
+                                                    {topic.icon}
+                                                </div>
                                             </div>
 
                                             {/* Category Title */}
                                             <h3 className="h6 fw-bold mb-0" style={{
-                                                color: '#FFD700',
+                                                color: ColorPalette.accentBeige,
                                                 fontSize: '1.1rem',
-                                                textShadow: '1px 1px 2px rgba(0,0,0,0.3)',
+                                                textShadow: `1px 1px 2px ${ColorPalette.blueShadow}`,
                                                 letterSpacing: '0.5px',
                                                 textTransform: 'uppercase'
                                             }}>
@@ -178,15 +177,17 @@ const TrainingTopics = () => {
                                                 <div key={topicIndex} className="d-flex align-items-start mb-2" style={{
                                                     paddingLeft: '10px'
                                                 }}>
-                                                    <i className="bi bi-check-circle-fill" style={{
-                                                        color: '#d89a2d',
+                                                    <div style={{
+                                                        color: ColorPalette.accentBeige,
                                                         fontSize: '1rem',
                                                         marginTop: '4px',
                                                         marginRight: '12px',
                                                         flexShrink: 0
-                                                    }}></i>
+                                                    }}>
+                                                        <IoCheckmarkCircle />
+                                                    </div>
                                                     <p style={{
-                                                        color: '#FFFFFF',
+                                                        color: ColorPalette.lightText,
                                                         fontSize: '0.95rem',
                                                         lineHeight: '1.5',
                                                         margin: '0',
@@ -202,7 +203,7 @@ const TrainingTopics = () => {
                                         <div style={{
                                             width: '50px',
                                             height: '3px',
-                                            background: topic.color,
+                                            background: ColorPalette.beigeGradient,
                                             marginTop: '1.5rem',
                                             borderRadius: '2px'
                                         }}></div>

@@ -1,30 +1,34 @@
 import React from 'react';
+import { FaAward, FaChalkboardTeacher, FaLaptopCode, FaUniversity, FaUserFriends } from 'react-icons/fa';
+import ColorPalette from './ColorPalette';
 
-const ProfessionalTitleCard = ({ title }) => {
+const ProfessionalTitleCard = ({ title, icon }) => {
   return (
     <div className="text-center p-4 border rounded-3 h-100 d-flex flex-column justify-content-center component" style={{
-      background: 'rgba(255, 255, 255, 0.05)',
+      background: ColorPalette.darkBlueBackground,
       backdropFilter: 'blur(10px)',
-      border: '1px solid rgba(255, 255, 255, 0.1)',
+      border: `1px solid ${ColorPalette.primaryBorder}`,
       transition: 'all 0.3s ease'
     }}
     onMouseEnter={(e) => {
       e.currentTarget.style.transform = 'translateY(-5px)';
-      e.currentTarget.style.boxShadow = '0 10px 30px rgba(255,255,255,0.1)';
+      e.currentTarget.style.boxShadow = `0 10px 30px ${ColorPalette.beigeShadow}`;
     }}
     onMouseLeave={(e) => {
       e.currentTarget.style.transform = 'translateY(0)';
-      e.currentTarget.style.boxShadow = '0 5px 15px rgba(0,0,0,0.1)';
+      e.currentTarget.style.boxShadow = `0 5px 15px ${ColorPalette.blueShadow}`;
     }}
     >
       <div className="mb-3">
-        <i className="bi bi-award-fill" style={{ 
+        <div style={{ 
           fontSize: '3rem', 
-          color: '#FFD700',
+          color: ColorPalette.accentBeige,
           marginBottom: '1rem' 
-        }}></i>
+        }}>
+          {icon}
+        </div>
       </div>
-      <h5 className="fw-bold mb-2" style={{color: 'white'}}>
+      <h5 className="fw-bold mb-2" style={{color: ColorPalette.lightText}}>
         {title}
       </h5>
     </div>
@@ -33,10 +37,22 @@ const ProfessionalTitleCard = ({ title }) => {
 
 const ProfessionalTitles = () => {
   const professionalTitles = [
-    'Professional Certified Trainer',
-    'Professional Instructional Designer',
-    'Experienced Banking Professional',
-    'Mentor & Financial Literacy Trainer'
+    {
+      title: 'Professional Certified Trainer',
+      icon: <FaChalkboardTeacher />
+    },
+    {
+      title: 'Professional Instructional Designer',
+      icon: <FaLaptopCode />
+    },
+    {
+      title: 'Experienced Banking Professional',
+      icon: <FaUniversity />
+    },
+    {
+      title: 'Mentor & Financial Literacy Trainer',
+      icon: <FaUserFriends />
+    }
   ];
 
   return (
@@ -44,14 +60,14 @@ const ProfessionalTitles = () => {
       <div className="container">
         <div className="row justify-content-center mb-5">
           <div className="col-12">
-            <h3 className="h3 fw-bold mb-4 text-center" style={{color: 'white'}}>
+            <h3 className="h3 fw-bold mb-4 text-center" style={{color: ColorPalette.lightText}}>
               Professional Titles I Had
             </h3>
             
             <div className="row g-4">
-              {professionalTitles.map((title, index) => (
+              {professionalTitles.map((item, index) => (
                 <div key={index} className="col-md-6 col-lg-3">
-                  <ProfessionalTitleCard title={title} />
+                  <ProfessionalTitleCard title={item.title} icon={item.icon} />
                 </div>
               ))}
             </div>

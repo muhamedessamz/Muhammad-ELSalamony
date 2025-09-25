@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FaEnvelope, FaPhone, FaWhatsapp, FaInfoCircle, FaCalendarCheck, FaUser, FaPaperPlane } from 'react-icons/fa';
+import ColorPalette from './ColorPalette';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -74,7 +76,7 @@ const Contact = () => {
 
   return (
     <section id="contact" className="py-4 position-relative" style={{
-      background: 'linear-gradient(135deg, #0b1a61 0%, #1f2a89 50%, #d89a2d 100%)',
+      background: `linear-gradient(135deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 50%, ${ColorPalette.accentBeige} 100%)`,
       overflow: 'hidden',
       minHeight: 'auto',
       display: 'flex',
@@ -88,7 +90,7 @@ const Contact = () => {
         right: '10%',
         width: '300px',
         height: '300px',
-        background: 'radial-gradient(circle, rgba(255,215,0,0.15) 0%, rgba(0,0,0,0) 70%)',
+        background: `radial-gradient(circle, ${ColorPalette.accentBeige}26 0%, rgba(0,0,0,0) 70%)`,
         borderRadius: '50%',
         filter: 'blur(40px)'
       }}></div>
@@ -99,7 +101,7 @@ const Contact = () => {
         left: '10%',
         width: '400px',
         height: '400px',
-        background: 'radial-gradient(circle, rgba(0,123,255,0.1) 0%, rgba(0,0,0,0) 70%)',
+        background: `radial-gradient(circle, ${ColorPalette.primaryBlue}26 0%, rgba(0,0,0,0) 70%)`,
         borderRadius: '50%',
         filter: 'blur(50px)'
       }}></div>
@@ -107,16 +109,16 @@ const Contact = () => {
       <div className="container position-relative" style={{ zIndex: 1, padding: '2rem 0' }}>
         <div className="text-center mb-4">
           <h2 className="display-4 fw-bold mb-3" style={{
-            color: '#fff',
-            textShadow: '0 2px 10px rgba(0,0,0,0.2)',
+            color: ColorPalette.lightText,
+            textShadow: '0 2px 10px rgba(27, 60, 83, 0.2)',
             fontSize: '2.25rem'
           }}>Get In Touch</h2>
           <p className="lead" style={{
-            color: 'rgba(255,255,255,0.8)',
+            color: 'rgba(249, 243, 239, 0.8)',
             maxWidth: '600px',
             margin: '0 auto',
             fontSize: '1.1rem',
-            textShadow: '0 1px 3px rgba(0,0,0,0.3)'
+            textShadow: '0 1px 3px rgba(27, 60, 83, 0.3)'
           }}>Let's discuss your career goals and training needs</p>
         </div>
 
@@ -134,13 +136,13 @@ const Contact = () => {
                   border: '1px solid rgba(255,255,255,0.3)'
                 }}>
                   <h3 className="h4 mb-4" style={{ 
-                    color: '#2c3e50',
+                    color: ColorPalette.primaryText,
                     fontWeight: '700',
                     display: 'flex',
                     alignItems: 'center',
                     gap: '10px'
                   }}>
-                    <i className="bi bi-send-fill" style={{ color: '#007bff' }}></i>
+                    <FaPaperPlane style={{ color: ColorPalette.secondaryBlue }} />
                     Send a Message
                   </h3>
                   
@@ -155,7 +157,7 @@ const Contact = () => {
                           borderTopLeftRadius: '10px',
                           borderBottomLeftRadius: '10px'
                         }}>
-                          <i className="bi bi-person-fill"></i>
+                          <FaUser />
                         </span>
                         <input
                           type="text"
@@ -186,7 +188,7 @@ const Contact = () => {
                           borderTopLeftRadius: '10px',
                           borderBottomLeftRadius: '10px'
                         }}>
-                          <i className="bi bi-envelope-fill"></i>
+                          <FaEnvelope />
                         </span>
                         <input
                           type="email"
@@ -230,24 +232,24 @@ const Contact = () => {
                       type="submit"
                       className="btn w-100 py-3 fw-bold"
                       style={{
-                        background: 'linear-gradient(135deg, #007bff 0%, #0056b3 100%)',
-                        color: 'white',
+                        background: ColorPalette.blueGradient,
+                        color: ColorPalette.lightText,
                         border: 'none',
                         borderRadius: '10px',
                         fontSize: '1rem',
                         transition: 'all 0.3s ease',
-                        boxShadow: '0 4px 15px rgba(0, 123, 255, 0.3)'
+                        boxShadow: `0 4px 15px ${ColorPalette.blueShadow}`
                       }}
                       onMouseOver={(e) => {
                         e.target.style.transform = 'translateY(-2px)';
-                        e.target.style.boxShadow = '0 6px 20px rgba(0, 123, 255, 0.4)';
+                        e.target.style.boxShadow = `0 6px 20px ${ColorPalette.beigeShadow}`;
                       }}
                       onMouseOut={(e) => {
                         e.target.style.transform = 'translateY(0)';
-                        e.target.style.boxShadow = '0 4px 15px rgba(0, 123, 255, 0.3)';
+                        e.target.style.boxShadow = `0 4px 15px ${ColorPalette.blueShadow}`;
                       }}
                     >
-                      <i className="bi bi-send-fill me-2"></i> Send Message
+                      <FaPaperPlane className="me-2" /> Send Message
                     </button>
                   </form>
 
@@ -320,7 +322,7 @@ const Contact = () => {
                     border: '1px solid rgba(255,255,255,0.3)'
                   }}>
                     <h3 className="h4 mb-3" style={{ 
-                      color: '#2c3e50',
+                      color: ColorPalette.primaryText,
                       fontWeight: '700',
                       display: 'flex',
                       alignItems: 'center',
@@ -329,7 +331,7 @@ const Contact = () => {
                       fontSize: '1.25rem',
                       textAlign: 'center'
                     }}>
-                      <i className="bi bi-info-circle-fill" style={{ color: '#007bff' }}></i>
+                      <FaInfoCircle style={{ color: ColorPalette.secondaryBlue }} />
                       Contact Information
                     </h3>
                     
@@ -343,10 +345,10 @@ const Contact = () => {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: '#007bff',
+                          color: ColorPalette.secondaryBlue,
                           marginBottom: '0.5rem'
                         }}>
-                          <i className="bi bi-envelope-fill"></i>
+                          <FaEnvelope />
                         </div>
                         <div style={{ textAlign: 'center' }}>
                           <h6 style={{
@@ -359,7 +361,7 @@ const Contact = () => {
                           <a 
                             href="mailto:mo7amedelsalamony@gmail.com" 
                             style={{
-                              color: '#2c3e50',
+                              color: ColorPalette.primaryText,
                               textDecoration: 'none',
                               transition: 'all 0.2s ease',
                               fontWeight: '500',
@@ -367,8 +369,8 @@ const Contact = () => {
                               fontSize: '0.85rem',
                               lineHeight: '1.3'
                             }}
-                            onMouseOver={(e) => e.target.style.color = '#007bff'}
-                            onMouseOut={(e) => e.target.style.color = '#2c3e50'}
+                            onMouseOver={(e) => e.target.style.color = ColorPalette.secondaryBlue}
+                            onMouseOut={(e) => e.target.style.color = ColorPalette.primaryText}
                           >
                             mo7amedelsalamony@gmail.com
                           </a>
@@ -386,10 +388,10 @@ const Contact = () => {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: '#007bff',
+                          color: ColorPalette.secondaryBlue,
                           marginBottom: '0.5rem'
                         }}>
-                          <i className="bi bi-telephone-fill"></i>
+                          <FaPhone />
                         </div>
                         <div style={{ textAlign: 'center' }}>
                           <h6 style={{
@@ -402,7 +404,7 @@ const Contact = () => {
                           <a 
                             href="tel:+201021642220"
                             style={{
-                              color: '#2c3e50',
+                              color: ColorPalette.primaryText,
                               textDecoration: 'none',
                               transition: 'all 0.2s ease',
                               fontWeight: '500',
@@ -410,8 +412,8 @@ const Contact = () => {
                               fontSize: '0.85rem',
                               lineHeight: '1.3'
                             }}
-                            onMouseOver={(e) => e.target.style.color = '#007bff'}
-                            onMouseOut={(e) => e.target.style.color = '#2c3e50'}
+                            onMouseOver={(e) => e.target.style.color = ColorPalette.secondaryBlue}
+                            onMouseOut={(e) => e.target.style.color = ColorPalette.primaryText}
                           >
                             +20 102 164 2220
                           </a>
@@ -429,10 +431,10 @@ const Contact = () => {
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
-                          color: '#007bff',
+                          color: ColorPalette.secondaryBlue,
                           marginBottom: '0.5rem'
                         }}>
-                          <i className="bi bi-whatsapp"></i>
+                          <FaWhatsapp />
                         </div>
                         <div style={{ textAlign: 'center' }}>
                           <h6 style={{
@@ -447,7 +449,7 @@ const Contact = () => {
                             target="_blank"
                             rel="noopener noreferrer"
                             style={{
-                              color: '#2c3e50',
+                              color: ColorPalette.primaryText,
                               textDecoration: 'none',
                               transition: 'all 0.2s ease',
                               fontWeight: '500',
@@ -455,8 +457,8 @@ const Contact = () => {
                               fontSize: '0.85rem',
                               lineHeight: '1.3'
                             }}
-                            onMouseOver={(e) => e.target.style.color = '#007bff'}
-                            onMouseOut={(e) => e.target.style.color = '#2c3e50'}
+                            onMouseOver={(e) => e.target.style.color = ColorPalette.secondaryBlue}
+                            onMouseOut={(e) => e.target.style.color = ColorPalette.primaryText}
                           >
                             +20 127 014 1874
                           </a>
@@ -474,14 +476,14 @@ const Contact = () => {
                     border: '1px solid rgba(255,255,255,0.3)'
                   }}>
                     <div className="text-center">
-                      <i className="bi bi-calendar-check" style={{
+                      <FaCalendarCheck style={{
                         fontSize: '2.5rem',
-                        color: '#28a745',
+                        color: ColorPalette.secondaryBlue,
                         marginBottom: '1rem',
                         display: 'inline-block'
-                      }}></i>
+                      }} />
                       <h4 style={{
-                        color: '#2c3e50',
+                        color: ColorPalette.primaryText,
                         fontSize: '1.25rem',
                         marginBottom: '0.75rem',
                         fontWeight: '700'
@@ -497,25 +499,25 @@ const Contact = () => {
                         rel="noopener noreferrer"
                         className="btn w-100"
                         style={{
-                          background: 'linear-gradient(135deg, #28a745 0%, #218838 100%)',
-                          color: 'white',
+                          background: ColorPalette.blueGradient,
+                          color: ColorPalette.lightText,
                           border: 'none',
                           borderRadius: '10px',
                           padding: '0.75rem',
                           fontWeight: '600',
                           transition: 'all 0.3s ease',
-                          boxShadow: '0 4px 15px rgba(40, 167, 69, 0.3)'
+                          boxShadow: `0 4px 15px ${ColorPalette.blueShadow}`
                         }}
                         onMouseOver={(e) => {
                           e.target.style.transform = 'translateY(-2px)';
-                          e.target.style.boxShadow = '0 6px 20px rgba(40, 167, 69, 0.4)';
+                          e.target.style.boxShadow = `0 6px 20px ${ColorPalette.beigeShadow}`;
                         }}
                         onMouseOut={(e) => {
                           e.target.style.transform = 'translateY(0)';
-                          e.target.style.boxShadow = '0 4px 15px rgba(40, 167, 69, 0.3)';
+                          e.target.style.boxShadow = `0 4px 15px ${ColorPalette.blueShadow}`;
                         }}
                       >
-                        <i className="bi bi-calendar-check me-2"></i> Book Now
+                        <FaCalendarCheck className="me-2" /> Book Now
                       </a>
                     </div>
                   </div>

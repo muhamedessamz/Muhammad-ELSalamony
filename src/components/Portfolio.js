@@ -1,27 +1,29 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { FaClock, FaUsers, FaCalendarAlt, FaPlayCircle } from 'react-icons/fa';
+import ColorPalette from './ColorPalette';
 
 const Portfolio = () => {
   const stats = [
     {
-      icon: 'bi bi-clock-history',
+      icon: <FaClock />,
       value: '+20,000',
       label: 'Training Hours Delivered',
       description: 'Online & Offline'
     },
     {
-      icon: 'bi bi-people-fill',
+      icon: <FaUsers />,
       value: '+20,000',
       label: 'Trainees Attendance',
       description: 'Professionals trained worldwide through comprehensive programs'
     },
     {
-      icon: 'bi bi-calendar3',
+      icon: <FaCalendarAlt />,
       value: '+11',
       label: 'Years',
       description: 'in the field'
     },
     {
-      icon: 'bi bi-play-circle-fill',
+      icon: <FaPlayCircle />,
       value: '+20,000',
       label: 'Watching Hours',
       description: 'on my recorded courses'
@@ -29,9 +31,8 @@ const Portfolio = () => {
   ];
 
   return (
-    <section id="portfolio" className="py-5" style={{
-      background: 'linear-gradient(240deg, #0b1a61 0%, #1f2a89 45%, #d89a2d 100%)',
-      minHeight: '100vh',
+    <section id="portfolio" className="py-4" style={{
+      background: `linear-gradient(240deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 45%, ${ColorPalette.accentBeige} 100%)`,
       position: 'relative',
       overflow: 'hidden'
     }}>
@@ -42,7 +43,7 @@ const Portfolio = () => {
         right: '-3%',
         width: '200px',
         height: '200px',
-        background: 'linear-gradient(45deg, rgba(255,215,0,0.2), rgba(255,215,0,0.1))',
+        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}20, ${ColorPalette.accentBeige}10)`,
         borderRadius: '50%',
         filter: 'blur(2px)'
       }}></div>
@@ -52,59 +53,67 @@ const Portfolio = () => {
         left: '-5%',
         width: '300px',
         height: '300px',
-        background: 'linear-gradient(45deg, rgba(255,215,0,0.15), rgba(255,215,0,0.08))',
+        background: `linear-gradient(45deg, ${ColorPalette.accentBeige}15, ${ColorPalette.accentBeige}08)`,
         borderRadius: '50%',
         filter: 'blur(3px)'
       }}></div>
 
       <div className="container position-relative">
-        <div className="text-center mb-5">
-          <h2 className="display-5 fw-bold mb-4" style={{ color: '#FFFFFF' }}>Figures about my training Journey</h2>
-          <p className="lead" style={{ color: 'rgba(255,255,255,0.9)' }}>Measuring success through lives transformed and knowledge shared</p>
+        <div className="text-center mb-4">
+          <h2 className="display-5 fw-bold mb-3" style={{ color: ColorPalette.lightText }}>
+            <div style={{ display: 'inline-block', verticalAlign: 'middle', marginRight: '1rem' }}>
+              <FaClock />
+            </div>
+            Figures about my training Journey
+          </h2>
+          <p className="lead" style={{ color: 'rgba(249, 243, 239, 0.9)' }}>Measuring success through lives transformed and knowledge shared</p>
         </div>
 
         {/* Stats Grid */}
-        <div className="row g-4 mb-5">
+        <div className="row g-4 mb-4">
           {stats.map((stat, index) => (
             <div key={index} className="col-lg-3 col-md-6">
               <div className="text-center p-4 rounded-4 shadow-sm h-100 d-flex flex-column justify-content-center position-relative" style={{
                 transition: 'all 0.3s ease',
-                border: '2px solid rgba(255,215,0,0.3)',
+                border: `2px solid ${ColorPalette.accentBeige}40`,
                 background: 'rgba(255, 255, 255, 0.95)',
                 backdropFilter: 'blur(15px)',
-                boxShadow: '0 15px 35px rgba(0,0,0,0.2)'
+                boxShadow: `0 15px 35px ${ColorPalette.blueShadow}`
               }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.transform = 'translateY(-8px)';
-                  e.currentTarget.style.boxShadow = '0 25px 50px rgba(0,0,0,0.3)';
-                  e.currentTarget.style.borderColor = '#FFD700';
+                  e.currentTarget.style.boxShadow = `0 25px 50px ${ColorPalette.blueShadow}`;
+                  e.currentTarget.style.borderColor = ColorPalette.accentBeige;
                 }}
                 onMouseLeave={(e) => {
                   e.currentTarget.style.transform = 'translateY(0)';
-                  e.currentTarget.style.boxShadow = '0 15px 35px rgba(0,0,0,0.2)';
-                  e.currentTarget.style.borderColor = 'rgba(255,215,0,0.3)';
+                  e.currentTarget.style.boxShadow = `0 15px 35px ${ColorPalette.blueShadow}`;
+                  e.currentTarget.style.borderColor = `${ColorPalette.accentBeige}40`;
                 }}>
                 <div className="mb-3">
                   <div className="rounded-circle d-flex align-items-center justify-content-center mx-auto"
                     style={{
                       width: '70px',
                       height: '70px',
-                      background: 'linear-gradient(45deg, #3498db, #2980b9)',
-                      color: 'white'
+                      background: ColorPalette.blueGradient,
+                      color: ColorPalette.lightText
                     }}>
-                    <i className={`${stat.icon}`} style={{ fontSize: '1.8rem' }}></i>
+                    <div style={{ fontSize: '1.8rem' }}>
+                      {stat.icon}
+                    </div>
                   </div>
                 </div>
                 <div className="h1 fw-bold mb-2" style={{
-                  color: '#2c3e50',
+                  color: ColorPalette.primaryBlue,
                   fontSize: '2.5rem',
                   fontWeight: '700'
                 }}>{stat.value}</div>
                 <h5 className="fw-semibold mb-3" style={{
-                  color: '#34495e',
+                  color: ColorPalette.secondaryBlue,
                   fontSize: '1.1rem'
                 }}>{stat.label}</h5>
-                <p className="text-muted small mb-0" style={{
+                <p className="small mb-0" style={{
+                  color: ColorPalette.secondaryBlue,
                   lineHeight: '1.5',
                   fontSize: '0.9rem'
                 }}>{stat.description}</p>
@@ -116,7 +125,7 @@ const Portfolio = () => {
                     top: '20%',
                     height: '60%',
                     width: '2px',
-                    background: 'linear-gradient(to bottom, transparent, #e0e0e0, transparent)'
+                    background: `linear-gradient(to bottom, transparent, ${ColorPalette.accentBeige}, transparent)`
                   }}></div>
                 )}
               </div>

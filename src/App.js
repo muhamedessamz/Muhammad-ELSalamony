@@ -37,10 +37,10 @@ function HomePage() {
       <ProfessionalTitlesWithImage />
       <TrainingFieldTitles />
       <TrainingSetupsSection />
+      <TrainingPortfolio />
       <TrainingResponsibilities />
       <Credentials />
       <TrainingTopics />
-      <TrainingPortfolio />
       <FinancialWellnessProgram />
       <BankingEssentialsProgram />
       <CareerKickstartProgram />
