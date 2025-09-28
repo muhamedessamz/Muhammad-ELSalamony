@@ -37,7 +37,7 @@ const CareerKickstartProgram = () => {
     ];
 
     return (
-        <section id="career-kickstart-program" className="py-3" style={{
+        <section id="career-kickstart-program" className="py-4" style={{
             background: `linear-gradient(300deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 35%, ${ColorPalette.accentBeige} 100%)`,
             color: ColorPalette.lightText,
             position: 'relative',
@@ -65,7 +65,7 @@ const CareerKickstartProgram = () => {
                 filter: 'blur(2px)'
             }}></div>
 
-            <div className="container-fluid position-relative px-3 px-md-4">
+            <div className="container-fluid position-relative px-3 px-md-4" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
                 <div className="row">
                     <div className="col-12">
                         <div style={{
@@ -73,7 +73,7 @@ const CareerKickstartProgram = () => {
                             backdropFilter: 'blur(12px)',
                             border: `2px solid ${ColorPalette.primaryBorder}`,
                             borderRadius: '20px',
-                            padding: '1.5rem',
+                            padding: '2.5rem',
                             boxShadow: `0 20px 40px ${ColorPalette.blueShadow}`,
                             margin: '0 auto'
                         }}>
@@ -118,7 +118,7 @@ const CareerKickstartProgram = () => {
                                             fontSize: '0.95rem',
                                             lineHeight: '1.6',
                                             margin: '0',
-                                            textAlign: 'left'
+                                            textAlign: 'center'
                                         }}>
                                             Career Kickstart Program is designed to give students and fresh graduates a powerful launch into the professional world. The program focuses on equipping participants with <strong style={{ color: ColorPalette.accentBeige }}>essential workplace skills, practical job-hunting strategies, and the confidence needed to stand out</strong> in today's competitive market. Through interactive training on Career Planning, CV writing, interview preparation, networking, and LinkedIn optimization, participants will gain the tools to accelerate their career journey and secure better opportunities from day one.
                                         </p>
@@ -229,7 +229,8 @@ const CareerKickstartProgram = () => {
                                                     color: ColorPalette.lightText,
                                                     fontSize: '0.85rem',
                                                     lineHeight: '1.4',
-                                                    margin: '0'
+                                                    margin: '0',
+                                                    textAlign: 'left' // Ensure left alignment for better readability
                                                 }}>
                                                     {audience}
                                                 </p>
@@ -388,6 +389,16 @@ const CareerKickstartProgram = () => {
                     }
                     
                     .g-2 {
+                    
+                    /* Ensure proper text alignment on mobile */
+                    div[style*="textAlign: 'left'"] {
+                        text-align: left !important;
+                        word-wrap: break-word;
+                        hyphens: auto;
+                    }
+                }
+                
+                @media (max-width: 576px) {
                         --bs-gutter-x: 0.5rem;
                     }
                 }

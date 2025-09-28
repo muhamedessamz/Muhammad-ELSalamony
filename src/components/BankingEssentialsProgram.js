@@ -32,7 +32,7 @@ const BankingEssentialsProgram = () => {
     ];
 
     return (
-        <section id="banking-essentials-program" className="py-3" style={{
+        <section id="banking-essentials-program" className="py-4" style={{
             background: `linear-gradient(120deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 50%, ${ColorPalette.accentBeige} 100%)`,
             color: ColorPalette.lightText,
             position: 'relative',
@@ -60,7 +60,7 @@ const BankingEssentialsProgram = () => {
                 filter: 'blur(2px)'
             }}></div>
 
-            <div className="container-fluid position-relative px-3 px-md-4">
+            <div className="container-fluid position-relative px-3 px-md-4" style={{ paddingTop: '2rem', paddingBottom: '2rem' }}>
                 <div className="row">
                     <div className="col-12">
                         <div style={{
@@ -68,7 +68,7 @@ const BankingEssentialsProgram = () => {
                             backdropFilter: 'blur(15px)',
                             border: `1px solid ${ColorPalette.primaryBorder}`,
                             borderRadius: '20px',
-                            padding: '1.5rem',
+                            padding: '2.5rem',
                             boxShadow: `0 20px 40px ${ColorPalette.blueShadow}`,
                             margin: '0 auto'
                         }}>
@@ -113,7 +113,7 @@ const BankingEssentialsProgram = () => {
                                             fontSize: '0.95rem',
                                             lineHeight: '1.6',
                                             margin: '0',
-                                            textAlign: 'left'
+                                            textAlign: 'center'
                                         }}>
                                             The Banking Essentials for Everyone Program is designed to simplify the world of banking for individuals from non-banking backgrounds. The program provides a clear and practical understanding of <strong style={{ color: ColorPalette.accentBeige }}>key banking products, services, and customer rights</strong>. Participants will learn how to choose and use different types of bank accounts and cards effectively, avoid common mistakes in daily banking, and protect themselves from fraud and online scams.
                                         </p>
@@ -224,7 +224,8 @@ const BankingEssentialsProgram = () => {
                                                     color: ColorPalette.lightText,
                                                     fontSize: '0.85rem',
                                                     lineHeight: '1.4',
-                                                    margin: '0'
+                                                    margin: '0',
+                                                    textAlign: 'left' // Ensure left alignment for better readability
                                                 }}>
                                                     {audience}
                                                 </p>
@@ -381,6 +382,13 @@ const BankingEssentialsProgram = () => {
                     
                     .g-2 {
                         --bs-gutter-x: 0.5rem;
+                    }
+                    
+                    /* Ensure proper text alignment on mobile */
+                    div[style*="textAlign: 'left'"] {
+                        text-align: left !important;
+                        word-wrap: break-word;
+                        hyphens: auto;
                     }
                 }
                 

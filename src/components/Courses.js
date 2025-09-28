@@ -57,7 +57,7 @@ const Courses = () => {
 
   return (
     <section id="courses" className="py-5" style={{
-      background: `linear-gradient(45deg, ${ColorPalette.primaryBlue} 0%, ${ColorPalette.secondaryBlue} 35%, ${ColorPalette.accentBeige} 100%)`,
+      background: ColorPalette.blueGradient, // Changed to use the unified blue gradient
       minHeight: '100vh',
       position: 'relative',
       overflow: 'hidden'
@@ -120,7 +120,7 @@ const Courses = () => {
             <div className="position-relative">
               {/* Scroll Arrows */}
               <button
-                className="scroll-arrow left-arrow d-none d-lg-block"
+                className="scroll-arrow left-arrow d-none d-md-block" // Changed from d-lg-block to d-md-block
                 onClick={scrollLeft}
                 aria-label="Scroll left"
                 style={{
@@ -137,7 +137,7 @@ const Courses = () => {
                   boxShadow: `0 4px 12px ${ColorPalette.beigeShadow}`,
                   fontSize: '20px',
                   fontWeight: 'bold',
-                  color: ColorPalette.primaryBlue,
+                  color: ColorPalette.primaryText,
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   display: 'flex',
@@ -147,7 +147,7 @@ const Courses = () => {
                 onMouseEnter={(e) => {
                   e.target.style.background = ColorPalette.secondaryBlue;
                   e.target.style.transform = 'translateY(-50%) scale(1.1)';
-                  e.target.style.boxShadow = `0 6px 20px ${ColorPalette.beigeShadow}`;
+                  e.target.style.boxShadow = `0 6px 20px ${ColorPalette.blueShadow}`;
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.background = ColorPalette.accentBeige;
@@ -158,14 +158,21 @@ const Courses = () => {
                 ‹
               </button>
 
+              {/* Visual indicator for mobile users */}
+              <div className="d-md-none text-center mb-2">
+                <small style={{ color: ColorPalette.lightText, opacity: 0.8 }}>
+                  ← Swipe horizontally to see all platforms →
+                </small>
+              </div>
+              
               <div
                 ref={scrollRef}
-                className="platform-scroll-container"
+                className="platform-scroll-container position-relative"
                 style={{
                   display: 'flex',
                   overflowX: 'auto',
-                  gap: '40px',
-                  padding: '30px 0',
+                  gap: '20px', // Reduced gap for better mobile view
+                  padding: '30px 10px', // Added horizontal padding
                   scrollSnapType: 'x mandatory',
                   scrollbarWidth: 'none',
                   msOverflowStyle: 'none',
@@ -174,6 +181,12 @@ const Courses = () => {
                 }}
                 role="region"
                 aria-label="Platform courses carousel"
+                onTouchStart={(e) => {
+                  // Prevent default only on horizontal swipe
+                  if (Math.abs(e.touches[0].clientX - e.touches[0].clientY) > 10) {
+                    e.stopPropagation();
+                  }
+                }}
               >
                 {platforms.map((platform, index) => (
                   <div
@@ -181,9 +194,9 @@ const Courses = () => {
                     className="platform-card flex-shrink-0 text-center"
                     style={{
                       scrollSnapAlign: 'start',
-                      minWidth: '380px',
-                      maxWidth: '400px',
-                      height: '500px',
+                      minWidth: '300px',
+                      maxWidth: '320px',
+                      height: '400px',
                       background: 'rgba(255, 255, 255, 0.95)',
                       backdropFilter: 'blur(15px)',
                       borderRadius: '25px',
@@ -198,7 +211,7 @@ const Courses = () => {
                     }}
                     onMouseEnter={(e) => {
                       e.currentTarget.style.transform = 'translateY(-10px) scale(1.03)';
-                      e.currentTarget.style.boxShadow = '0 25px 60px rgba(0,0,0,0.2)';
+                      e.currentTarget.style.boxShadow = `0 25px 60px ${ColorPalette.blueShadow}`; // Changed to blueShadow
                       e.currentTarget.style.borderColor = `${ColorPalette.accentBeige}80`;
                     }}
                     onMouseLeave={(e) => {
@@ -264,7 +277,7 @@ const Courses = () => {
                       {/* Platform Info */}
                       <div className="text-center mb-3">
                         <h4 className="fw-bold mb-3" style={{
-                          color: ColorPalette.primaryBlue,
+                          color: ColorPalette.primaryText, // Changed to primaryText
                           fontSize: '1.5em',
                           letterSpacing: '0.5px'
                         }}>
@@ -272,7 +285,7 @@ const Courses = () => {
                         </h4>
                         <span className="badge" style={{
                           background: ColorPalette.beigeGradient,
-                          color: ColorPalette.primaryBlue,
+                          color: ColorPalette.primaryText, // Changed to primaryText
                           fontSize: '1em',
                           fontWeight: '700',
                           padding: '12px 24px',
@@ -289,7 +302,7 @@ const Courses = () => {
                         to={platform.link}
                         className="btn w-100"
                         style={{
-                          background: ColorPalette.blueGradient,
+                          background: ColorPalette.blueGradient, // Changed to blueGradient
                           border: 'none',
                           borderRadius: '30px',
                           color: ColorPalette.lightText,
@@ -297,7 +310,7 @@ const Courses = () => {
                           padding: '15px 25px',
                           fontSize: '1.1em',
                           transition: 'all 0.3s ease',
-                          boxShadow: `0 6px 20px ${ColorPalette.blueShadow}`,
+                          boxShadow: `0 6px 20px ${ColorPalette.blueShadow}`, // Changed to blueShadow
                           display: 'flex',
                           alignItems: 'center',
                           justifyContent: 'center',
@@ -306,13 +319,13 @@ const Courses = () => {
                         }}
                         onMouseEnter={(e) => {
                           e.target.style.transform = 'translateY(-3px)';
-                          e.target.style.boxShadow = `0 10px 30px ${ColorPalette.beigeShadow}`;
-                          e.target.style.background = ColorPalette.secondaryBlue;
+                          e.target.style.boxShadow = `0 10px 30px ${ColorPalette.blueShadow}`; // Changed to blueShadow
+                          e.target.style.background = ColorPalette.secondaryBlue; // Changed to secondaryBlue
                         }}
                         onMouseLeave={(e) => {
                           e.target.style.transform = 'translateY(0)';
-                          e.target.style.boxShadow = `0 6px 20px ${ColorPalette.blueShadow}`;
-                          e.target.style.background = ColorPalette.blueGradient;
+                          e.target.style.boxShadow = `0 6px 20px ${ColorPalette.blueShadow}`; // Changed to blueShadow
+                          e.target.style.background = ColorPalette.blueGradient; // Changed to blueGradient
                         }}
                       >
                         <i className="bi bi-arrow-right me-2"></i>
@@ -332,7 +345,7 @@ const Courses = () => {
                   </div>
                 ))}
 
-                {/* Hide scrollbar for webkit browsers */}
+                {/* Show scrollbar on mobile for better UX */}
                 <style jsx>{`
                   .platform-scroll-container::-webkit-scrollbar {
                     display: none;
@@ -342,15 +355,33 @@ const Courses = () => {
                     scrollbar-width: none;
                   }
                   
+                  /* Add visual indicators for mobile users */
                   @media (max-width: 768px) {
+                    .platform-scroll-container {
+                      padding-bottom: 20px; /* Space for scrollbar */
+                    }
+                    
+                    .platform-scroll-container::before {
+                      content: '← Swipe →';
+                      position: absolute;
+                      top: -30px;
+                      left: 50%;
+                      transform: translateX(-50%);
+                      color: ${ColorPalette.lightText};
+                      font-size: 14px;
+                      font-weight: 500;
+                      opacity: 0.7;
+                      animation: pulse 2s infinite;
+                    }
+                    
                     .platform-card {
-                      min-width: 320px !important;
-                      max-width: 340px !important;
-                      height: 420px !important;
+                      min-width: 300px !important;
+                      max-width: 320px !important;
+                      height: 400px !important;
                     }
                     
                     .platform-image-container {
-                      height: 220px !important;
+                      height: 200px !important;
                     }
                     
                     .platform-content {
@@ -358,7 +389,7 @@ const Courses = () => {
                     }
                   }
                   
-                  @media (max-width: 480px) {
+                  @media (max-width: 576px) {
                     .platform-card {
                       min-width: 280px !important;
                       max-width: 300px !important;
@@ -373,11 +404,33 @@ const Courses = () => {
                       padding: 15px 12px !important;
                     }
                   }
+                  
+                  @media (max-width: 400px) {
+                    .platform-card {
+                      min-width: 260px !important;
+                      max-width: 280px !important;
+                      height: 360px !important;
+                    }
+                    
+                    .platform-image-container {
+                      height: 160px !important;
+                    }
+                    
+                    .platform-content {
+                      padding: 12px 10px !important;
+                    }
+                  }
+                  
+                  @keyframes pulse {
+                    0% { opacity: 0.7; }
+                    50% { opacity: 1; }
+                    100% { opacity: 0.7; }
+                  }
                 `}</style>
               </div>
 
               <button
-                className="scroll-arrow right-arrow d-none d-lg-block"
+                className="scroll-arrow right-arrow d-none d-md-block"
                 onClick={scrollRight}
                 aria-label="Scroll right"
                 style={{
@@ -394,17 +447,18 @@ const Courses = () => {
                   boxShadow: `0 4px 12px ${ColorPalette.beigeShadow}`,
                   fontSize: '20px',
                   fontWeight: 'bold',
-                  color: ColorPalette.primaryBlue,
+                  color: ColorPalette.primaryText, // Changed to primaryText for better contrast
                   cursor: 'pointer',
                   transition: 'all 0.3s ease',
                   display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center'
                 }}
+                onTouchEnd={scrollRight} // Added touch support
                 onMouseEnter={(e) => {
                   e.target.style.background = ColorPalette.secondaryBlue;
                   e.target.style.transform = 'translateY(-50%) scale(1.1)';
-                  e.target.style.boxShadow = `0 6px 20px ${ColorPalette.beigeShadow}`;
+                  e.target.style.boxShadow = `0 6px 20px ${ColorPalette.blueShadow}`; // Changed to blueShadow
                 }}
                 onMouseLeave={(e) => {
                   e.target.style.background = ColorPalette.accentBeige;
@@ -428,7 +482,7 @@ const Courses = () => {
                 background: ColorPalette.beigeGradient,
                 border: 'none',
                 borderRadius: '35px',
-                color: ColorPalette.primaryBlue,
+                color: ColorPalette.primaryText, // Changed to primaryText
                 fontWeight: 'bold',
                 padding: '15px 40px',
                 fontSize: '1.1em',
@@ -441,11 +495,15 @@ const Courses = () => {
               }}
               onMouseEnter={(e) => {
                 e.target.style.transform = 'translateY(-3px) scale(1.05)';
-                e.target.style.boxShadow = `0 12px 35px ${ColorPalette.beigeShadow}`;
+                e.target.style.boxShadow = `0 12px 35px ${ColorPalette.blueShadow}`; // Changed to blueShadow
+                e.target.style.background = ColorPalette.secondaryBlue; // Changed to secondaryBlue
+                e.target.style.color = ColorPalette.lightText; // Changed to lightText for better contrast
               }}
               onMouseLeave={(e) => {
                 e.target.style.transform = 'translateY(0) scale(1)';
                 e.target.style.boxShadow = `0 8px 25px ${ColorPalette.beigeShadow}`;
+                e.target.style.background = ColorPalette.beigeGradient;
+                e.target.style.color = ColorPalette.primaryText; // Reset to primaryText
               }}
             >
               <i className="bi bi-collection me-2"></i>

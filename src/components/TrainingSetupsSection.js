@@ -36,11 +36,13 @@ const TrainingSetupsSection = () => {
     ];
 
     return (
-        <section id="training-setups-section" className="py-4" style={{
+        <section id="training-setups-section" className="py-5" style={{
             background: ColorPalette.blueGradient,
             color: ColorPalette.lightText,
             position: 'relative',
-            overflow: 'hidden'
+            overflow: 'hidden',
+            paddingTop: '3rem',
+            paddingBottom: '4rem' // Increased padding at the bottom
         }}>
             {/* Background decoration */}
             <div style={{
@@ -67,7 +69,7 @@ const TrainingSetupsSection = () => {
             <div className="container position-relative">
                 <div className="row justify-content-center">
                     <div className="col-lg-10">
-                        <div className="text-center mb-4">
+                        <div className="text-center mb-5" style={{ marginTop: '2rem' }}>
                             <h2 className="h3 fw-bold mb-3" style={{
                                 color: ColorPalette.lightText,
                                 fontSize: '1.8rem',
@@ -80,7 +82,7 @@ const TrainingSetupsSection = () => {
                             </h2>
                         </div>
 
-                        <div className="row g-3">
+                        <div className="row g-3" style={{ marginBottom: '2rem' }}> {/* Added margin at the bottom of the content */}
                             {trainingSetups.map((setup, index) => (
                                 <div key={setup.id} className="col-lg-4 col-md-6 col-sm-6 col-6">
                                     <div style={{

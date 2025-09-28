@@ -3,12 +3,6 @@ import { FaChalkboardTeacher, FaUserTie, FaChartLine, FaCertificate } from 'reac
 import ColorPalette from './ColorPalette';
 
 const TrainingPortfolio = () => {
-    const trainingStats = [
-        { value: '11+', label: 'Years Experience', icon: <FaChalkboardTeacher className="me-2" /> },
-        { value: '1000+', label: 'Trainees', icon: <FaUserTie className="me-2" /> },
-        { value: '50+', label: 'Training Programs', icon: <FaCertificate className="me-2" /> }
-    ];
-
     const trainingAreas = [
         'Banking', 
         'Financial Literacy', 
@@ -19,12 +13,14 @@ const TrainingPortfolio = () => {
     ];
 
     return (
-        <section id="training-portfolio" className="py-4" style={{
+        <section id="training-portfolio" className="py-5" style={{
             background: ColorPalette.blueGradient,
             color: ColorPalette.lightText,
             position: 'relative',
             overflow: 'hidden',
-            width: '100%'
+            width: '100%',
+            paddingTop: '3rem',
+            paddingBottom: '3rem'
         }}>
             {/* Decorative Elements */}
             <div style={{
@@ -62,10 +58,12 @@ const TrainingPortfolio = () => {
                             padding: '1.25rem',
                             position: 'relative',
                             overflow: 'hidden',
-                            boxShadow: `0 15px 30px ${ColorPalette.blueShadow}`
+                            boxShadow: `0 15px 30px ${ColorPalette.blueShadow}`,
+                            marginTop: '2rem',
+                            marginBottom: '2rem'
                         }}>
                             {/* Main Title */}
-                            <div className="text-center mb-4">
+                            <div className="text-center mb-5" style={{ marginTop: '1rem' }}>
                                 <h2 className="display-5 fw-bold mb-3" style={{
                                     color: ColorPalette.lightText,
                                     position: 'relative',
@@ -114,7 +112,7 @@ const TrainingPortfolio = () => {
                                             fontSize: '1rem',
                                             lineHeight: '1.6',
                                             marginBottom: '1.25rem',
-                                            textAlign: 'justify'
+                                            textAlign: 'center'
                                         }}>
                                             With over <span style={{ color: ColorPalette.accentBeige, fontWeight: '700' }}>11 years of experience</span> in the banking industry and a strong background in professional training and development, I specialize in designing and delivering impactful learning solutions that empower individuals and organizations.
                                         </p>
@@ -123,7 +121,7 @@ const TrainingPortfolio = () => {
                                             color: ColorPalette.lightText,
                                             fontSize: '1rem',
                                             lineHeight: '1.6',
-                                            textAlign: 'justify'
+                                            textAlign: 'center'
                                         }}>
                                             My training portfolio covers a wide range of areas including:
                                         </p>
@@ -164,54 +162,6 @@ const TrainingPortfolio = () => {
                                         ))}
                                     </div>
                                 </div>
-                            </div>
-
-                            {/* Stats Section */}
-                            <div className="row mt-4 pt-4" style={{
-                                borderTop: '1px solid rgba(255, 255, 255, 0.2)'
-                            }}>
-                                {trainingStats.map((stat, index) => (
-                                    <div key={index} className="col-md-4 col-6 mb-3">
-                                        <div className="text-center p-2" style={{
-                                            background: 'rgba(255, 255, 255, 0.05)',
-                                            borderRadius: '12px',
-                                            border: `1px solid ${ColorPalette.primaryBorder}`,
-                                            transition: 'all 0.3s ease',
-                                            height: '100%'
-                                        }}
-                                        onMouseEnter={(e) => {
-                                            e.currentTarget.style.transform = 'translateY(-5px)';
-                                            e.currentTarget.style.background = `${ColorPalette.accentBeige}1a`;
-                                            e.currentTarget.style.border = `1px solid ${ColorPalette.accentBorder}`;
-                                        }}
-                                        onMouseLeave={(e) => {
-                                            e.currentTarget.style.transform = 'translateY(0)';
-                                            e.currentTarget.style.background = 'rgba(255, 255, 255, 0.05)';
-                                            e.currentTarget.style.border = `1px solid ${ColorPalette.primaryBorder}`;
-                                        }}
-                                        >
-                                            <div style={{
-                                                fontSize: '2rem',
-                                                fontWeight: '800',
-                                                color: ColorPalette.accentBeige,
-                                                marginBottom: '0.25rem',
-                                                lineHeight: '1.2'
-                                            }}>
-                                                {stat.icon}
-                                                <div className="mt-1">{stat.value}</div>
-                                            </div>
-                                            <div style={{
-                                                fontSize: '0.9rem',
-                                                fontWeight: '600',
-                                                color: ColorPalette.lightText,
-                                                textTransform: 'uppercase',
-                                                letterSpacing: '1px'
-                                            }}>
-                                                {stat.label}
-                                            </div>
-                                        </div>
-                                    </div>
-                                ))}
                             </div>
                         </div>
                     </div>

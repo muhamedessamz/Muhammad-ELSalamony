@@ -48,22 +48,20 @@ const Footer = () => {
               &copy; {currentYear} Muhammad ELSalamony. All rights reserved.
             </p>
             
+            {/* Developed by Zakaria section */}
             <div className="mt-3">
-              <a 
-                href="#" 
-                className="btn btn-sm rounded-pill px-3 py-1"
-                style={{
-                  background: 'transparent',
-                  border: `1px solid ${ColorPalette.accentBeige}40`,
-                  transition: 'all 0.3s ease',
-                  fontSize: '0.8rem',
-                  textTransform: 'uppercase',
-                  letterSpacing: '1px',
-                  color: ColorPalette.lightText
-                }}
-              >
-                Contact Me
-              </a>
+              <p className="mb-0" style={{ color: 'rgba(249, 243, 239, 0.7)', fontSize: '0.9rem' }}>
+                Developed by{' '}
+                <a 
+                  href="https://www.linkedin.com/in/mohamedessamz/" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="text-decoration-none hover-gradient"
+                  style={{ color: ColorPalette.accentBeige }}
+                >
+                  Zakaria
+                </a>
+              </p>
             </div>
           </div>
         </div>

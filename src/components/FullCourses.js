@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
+import ColorPalette from './ColorPalette';
 
 // Import course images
 const udemyDigitalFinancialInclusion = require('../assets/images/main Courses/udemy/Digital-financial-inclusion.png');
@@ -47,7 +48,7 @@ const platformsData = {
     name: 'Almentor',
     description: 'Professional online training platform offering comprehensive courses in banking and finance',
     logo: '/src/assets/images/platforms/mentor-logo.png',
-    color: '#007bff',
+    color: ColorPalette.secondaryBlue,
     courses: [
       {
         title: 'الشمول المالي الرقمي - الاستفادة من التكنولوجيا لزيادة الوصول',
@@ -136,7 +137,7 @@ const platformsData = {
     name: 'Yanfaa',
     description: 'Comprehensive professional development platform offering courses in finance, management, and communication skills',
     logo: '/src/assets/images/platforms/yanfaa-logo.png',
-    color: '#28a745',
+    color: ColorPalette.secondaryBlue,
     courses: [
       {
         title: 'مهارات إدارة الوقت',
@@ -310,7 +311,7 @@ const platformsData = {
     name: 'Career 180',
     description: 'Career development platform focusing on professional skills and job market preparation',
     logo: '/src/assets/images/platforms/career-logo.png',
-    color: '#ffc107',
+    color: ColorPalette.accentBeige,
     courses: [
       {
         title: 'Banking for Non-Bankers',
@@ -339,7 +340,7 @@ const platformsData = {
     name: 'EYouth',
     description: 'Youth development platform offering courses for young professionals and students',
     logo: '/src/assets/images/platforms/eyouth-logo.png',
-    color: '#17a2b8',
+    color: ColorPalette.secondaryBlue,
     courses: [
       {
         title: 'الشمول المالي - Financial Inclusion',
@@ -368,7 +369,7 @@ const platformsData = {
     name: 'Udemy',
     description: 'Global online learning marketplace with courses in business, technology, and personal development',
     logo: '/src/assets/images/platforms/udemy-logo.png',
-    color: '#ffc107',
+    color: ColorPalette.accentBeige,
     courses: [
       {
         title: 'الشمول المالي الرقمي - Digital Financial Inclusion',
@@ -458,19 +459,19 @@ const FullCourses = () => {
         <div className="row mb-4 align-items-center">
           <div className="col">
             <h2 className="mb-1" style={{
-              color: '#2c3e50',
+              color: ColorPalette.primaryText,
               fontWeight: '700',
               fontSize: '2rem'
             }}>
               {platform.name}
             </h2>
             <p className="mb-0" style={{
-              color: '#5a6c7d',
+              color: ColorPalette.secondaryText,
               fontSize: '1.1rem',
               fontWeight: '400'
             }}>{platform.description}</p>
             <div className="mt-2">
-              <span className="badge me-2" style={{ backgroundColor: platform.color, color: 'white' }}>
+              <span className="badge me-2" style={{ backgroundColor: platform.color, color: ColorPalette.lightText, border: `1px solid ${ColorPalette.primaryBorder}` }}>
                 {platform.courses.length} Courses
               </span>
             </div>
@@ -481,8 +482,8 @@ const FullCourses = () => {
         <div className="row mb-5">
           <div className="col-12">
             <h3 className="mb-4" style={{
-              color: '#2c3e50',
-              borderBottom: '3px solid #3498db',
+              color: ColorPalette.primaryText,
+              borderBottom: `3px solid ${ColorPalette.accentBeige}`,
               paddingBottom: '10px',
               fontWeight: '700',
               fontSize: '1.8rem'
@@ -490,163 +491,295 @@ const FullCourses = () => {
               Available Courses
             </h3>
             {platformCourses.length > 0 ? (
-              <div className="courses-container" style={{
-                overflowX: (platformKey === 'mentor' || platformKey === 'yanfaa') ? 'auto' : 'visible',
-                overflowY: 'visible',
-                paddingBottom: (platformKey === 'mentor' || platformKey === 'yanfaa') ? '20px' : '0'
-              }}>
-                <div className={(platformKey === 'mentor' || platformKey === 'yanfaa') ? 'd-flex' : 'row g-4'} style={{
-                  gap: (platformKey === 'mentor' || platformKey === 'yanfaa') ? '1.5rem' : 'inherit',
-                  flexWrap: (platformKey === 'mentor' || platformKey === 'yanfaa') ? 'nowrap' : 'inherit'
+              <div>
+                {/* Visual indicators for mobile users */}
+                <div className="d-md-none text-center mb-2 position-relative">
+                  <small style={{ color: ColorPalette.primaryText, opacity: 0.8, fontWeight: '500' }}>
+                    ← Swipe to see more courses →
+                  </small>
+                </div>
+                
+                <div className="courses-container position-relative" style={{
+                  overflowX: 'auto',
+                  overflowY: 'visible',
+                  paddingBottom: '20px'
+                }}
+                onTouchStart={(e) => {
+                  // Prevent default only on horizontal swipe
+                  if (Math.abs(e.touches[0].clientX - e.touches[0].clientY) > 10) {
+                    e.stopPropagation();
+                  }
+                }}
+                onScroll={(e) => {
+                  // This would be used to show/hide scroll indicators dynamically
+                  // but we'll keep it simple with always visible indicators for now
                 }}>
-                  {platformCourses.map((course, index) => (
-                    <div key={index} className={(platformKey === 'mentor' || platformKey === 'yanfaa') ? '' : 'col-lg-4 col-md-6'} style={{
-                      minWidth: (platformKey === 'mentor' || platformKey === 'yanfaa') ? '320px' : 'auto',
-                      flex: (platformKey === 'mentor' || platformKey === 'yanfaa') ? '0 0 320px' : 'none'
+                  {/* Scroll indicators for mobile */}
+                  <div className="d-md-none position-absolute" style={{
+                    top: '50%',
+                    left: '10px',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10,
+                    opacity: 0.7,
+                    transition: 'opacity 0.3s ease'
+                  }}>
+                    <div style={{
+                      width: '30px',
+                      height: '30px',
+                      borderRadius: '50%',
+                      background: ColorPalette.accentBeige,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: `0 2px 8px ${ColorPalette.blueShadow}`,
+                      color: ColorPalette.primaryText,
+                      fontWeight: 'bold'
                     }}>
-                      <div className="card h-100" style={{
-                        background: 'rgba(255, 255, 255, 0.95)',
-                        backdropFilter: 'blur(15px)',
-                        borderRadius: '20px',
-                        border: '2px solid rgba(52,152,219,0.2)',
-                        color: '#2c3e50',
-                        transition: 'all 0.4s ease',
-                        boxShadow: '0 8px 25px rgba(0,0,0,0.1)',
-                        display: 'flex',
-                        flexDirection: 'column'
+                      ‹
+                    </div>
+                  </div>
+                  
+                  <div className="d-md-none position-absolute" style={{
+                    top: '50%',
+                    right: '10px',
+                    transform: 'translateY(-50%)',
+                    zIndex: 10,
+                    opacity: 0.7,
+                    transition: 'opacity 0.3s ease'
+                  }}>
+                    <div style={{
+                      width: '30px',
+                      height: '30px',
+                      borderRadius: '50%',
+                      background: ColorPalette.accentBeige,
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                      boxShadow: `0 2px 8px ${ColorPalette.blueShadow}`,
+                      color: ColorPalette.primaryText,
+                      fontWeight: 'bold'
+                    }}>
+                      ›
+                    </div>
+                  </div>
+                  
+                  <div className="d-flex" style={{
+                    gap: '1.5rem',
+                    flexWrap: 'nowrap'
+                  }}
+                  onTouchMove={(e) => {
+                    // Allow horizontal scrolling
+                    e.stopPropagation();
+                  }}>
+                    {platformCourses.map((course, index) => (
+                      <div key={index} className="" style={{
+                        minWidth: '320px',
+                        flex: '0 0 320px'
                       }}
-                        onMouseEnter={(e) => {
-                          e.currentTarget.style.transform = 'translateY(-8px)';
-                          e.currentTarget.style.boxShadow = '0 15px 40px rgba(52,152,219,0.2)';
-                          e.currentTarget.style.borderColor = 'rgba(52,152,219,0.4)';
-                        }}
-                        onMouseLeave={(e) => {
-                          e.currentTarget.style.transform = 'translateY(0)';
-                          e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.1)';
-                          e.currentTarget.style.borderColor = 'rgba(52,152,219,0.2)';
-                        }}
-                      >
-                        <div className="card-body p-4" style={{
+                      onTouchMove={(e) => {
+                        // Allow touch events to propagate for scrolling
+                        e.stopPropagation();
+                      }}>
+                        {/* Desktop responsive styles and scroll indicators */}
+                        <style jsx>{`
+                          @media (min-width: 992px) {
+                            div[style*="minWidth: '320px'"] {
+                              min-width: 340px !important;
+                              flex: 0 0 340px !important;
+                            }
+                          }
+                          
+                          @media (min-width: 1200px) {
+                            div[style*="minWidth: '320px'"] {
+                              min-width: 360px !important;
+                              flex: 0 0 360px !important;
+                            }
+                          }
+                          
+                          @media (min-width: 1400px) {
+                            div[style*="minWidth: '320px'"] {
+                              min-width: 380px !important;
+                              flex: 0 0 380px !important;
+                            }
+                          }
+                          
+                          @media (max-width: 576px) {
+                            div[style*="minWidth: '320px'"] {
+                              min-width: 280px !important;
+                              flex: 0 0 280px !important;
+                            }
+                          }
+                          
+                          @media (max-width: 400px) {
+                            div[style*="minWidth: '320px'"] {
+                              min-width: 260px !important;
+                              flex: 0 0 260px !important;
+                            }
+                          }
+                          
+                          /* Fade out scroll indicators when at edges */
+                          .courses-container {
+                            -webkit-overflow-scrolling: touch;
+                          }
+                          
+                          .courses-container::-webkit-scrollbar {
+                            display: none;
+                          }
+                        `}</style>
+                        
+                        <div className="card h-100" style={{
+                          background: 'rgba(255, 255, 255, 0.95)',
+                          backdropFilter: 'blur(15px)',
+                          borderRadius: '20px',
+                          border: `2px solid ${ColorPalette.accentBorder}`,
+                          color: ColorPalette.primaryText,
+                          transition: 'all 0.4s ease',
+                          boxShadow: `0 8px 25px ${ColorPalette.blueShadow}`,
                           display: 'flex',
-                          flexDirection: 'column',
-                          height: '100%'
-                        }}>
-                          <div className="text-center mb-3">
-                            <img
-                              src={course.image}
-                              alt={course.title}
-                              className="rounded mb-3"
-                              style={{
-                                width: '100%',
-                                height: '200px',
-                                objectFit: 'cover',
-                                objectPosition: (
-                                  course.title.includes('كيف تصبح مدرب') ||
-                                  course.title.includes('كيف تستعد لمقابلة') ||
-                                  course.title.includes('كيف تحصل على وظيفة') ||
-                                  course.title.includes('أساسيات العمل المصرفي') ||
-                                  course.title.includes('كيفية كتابة سيرة') ||
-                                  course.title.includes('التأهيل لسوق') ||
-                                  course.title.includes('الشمول المالي الرقمي') ||
-                                  course.title.includes('تمكين الشمول المالي') ||
-                                  course.title.includes('حقوقك البنكية') ||
-                                  course.title.includes('قواعد الجامعة') ||
-                                  course.title.includes('مهارات إدارة الوقت')
-                                ) ? 'center top' : 'center center',
-                                border: `3px solid ${platform.color}30`,
-                                boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
-                              }}
-                            />
-                          </div>
-
-                          <h5 className="card-title fw-bold mb-2" style={{
-                            color: '#2c3e50',
-                            fontSize: '1.3rem',
-                            lineHeight: '1.4'
+                          flexDirection: 'column'
+                        }}
+                          onMouseEnter={(e) => {
+                            e.currentTarget.style.transform = 'translateY(-8px)';
+                            e.currentTarget.style.boxShadow = `0 15px 40px ${ColorPalette.blueShadow}`;
+                            e.currentTarget.style.borderColor = ColorPalette.accentBeige;
+                          }}
+                          onMouseLeave={(e) => {
+                            e.currentTarget.style.transform = 'translateY(0)';
+                            e.currentTarget.style.boxShadow = `0 8px 25px ${ColorPalette.blueShadow}`;
+                            e.currentTarget.style.borderColor = ColorPalette.accentBorder;
+                          }}
+                        >
+                          <div className="card-body p-4" style={{
+                            display: 'flex',
+                            flexDirection: 'column',
+                            height: '100%'
                           }}>
-                            {course.title}
-                            {course.isNew && (
-                              <span className="badge bg-success ms-2" style={{
-                                fontSize: '0.7rem',
-                                padding: '0.3rem 0.6rem',
-                                borderRadius: '12px'
-                              }}>
-                                New
-                              </span>
-                            )}
-                          </h5>
-
-                          <p className="card-text mb-3" style={{
-                            color: '#5a6c7d',
-                            fontSize: '0.85em',
-                            lineHeight: '1.4',
-                            display: '-webkit-box',
-                            WebkitLineClamp: 2,
-                            WebkitBoxOrient: 'vertical',
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis'
-                          }}>
-                            {course.description}
-                          </p>
-
-                          <div className="row text-center mb-3">
-                            <div className="col-4">
-                              <small style={{ color: '#7b8a8b', fontWeight: '600' }}>
-                                <i className="bi bi-clock me-1"></i>
-                                {course.duration}
-                              </small>
+                            <div className="text-center mb-3">
+                              <img
+                                src={course.image}
+                                alt={course.title}
+                                className="rounded mb-3"
+                                style={{
+                                  width: '100%',
+                                  height: '200px',
+                                  objectFit: 'cover',
+                                  objectPosition: (
+                                    course.title.includes('كيف تصبح مدرب') ||
+                                    course.title.includes('كيف تستعد لمقابلة') ||
+                                    course.title.includes('كيف تحصل على وظيفة') ||
+                                    course.title.includes('أساسيات العمل المصرفي') ||
+                                    course.title.includes('كيفية كتابة سيرة') ||
+                                    course.title.includes('التأهيل لسوق') ||
+                                    course.title.includes('الشمول المالي الرقمي') ||
+                                    course.title.includes('تمكين الشمول المالي') ||
+                                    course.title.includes('حقوقك البنكية') ||
+                                    course.title.includes('قواعد الجامعة') ||
+                                    course.title.includes('مهارات إدارة الوقت')
+                                  ) ? 'center top' : 'center center',
+                                  border: `3px solid ${platform.color}30`,
+                                  boxShadow: '0 4px 15px rgba(0,0,0,0.1)'
+                                }}
+                              />
                             </div>
-                            <div className="col-4">
-                              {course.price && (
-                                <small className={`fw-bold ${course.price === 'Free' || course.price === 'Discounted' ? 'text-success' : 'text-warning'}`}>
-                                  {course.price}
-                                </small>
+
+                            <h5 className="card-title fw-bold mb-2" style={{
+                              color: ColorPalette.primaryText,
+                              fontSize: '1.3rem',
+                              lineHeight: '1.4'
+                            }}>
+                              {course.title}
+                              {course.isNew && (
+                                <span className="badge bg-success ms-2" style={{
+                                  fontSize: '0.7rem',
+                                  padding: '0.3rem 0.6rem',
+                                  borderRadius: '12px'
+                                }}>
+                                  New
+                                </span>
                               )}
-                            </div>
-                            <div className="col-4">
-                              <small style={{ color: '#7b8a8b', fontWeight: '600' }}>
-                                <i className="bi bi-mortarboard me-1"></i>
-                                {course.level}
-                              </small>
-                            </div>
-                          </div>
+                            </h5>
 
-                          <div style={{ flexGrow: 1 }}></div>
+                            <p className="card-text mb-3" style={{
+                              color: ColorPalette.secondaryText,
+                              fontSize: '0.85em',
+                              lineHeight: '1.4',
+                              display: '-webkit-box',
+                              WebkitLineClamp: 2,
+                              WebkitBoxOrient: 'vertical',
+                              overflow: 'hidden',
+                              textOverflow: 'ellipsis'
+                            }}>
+                              {course.description}
+                            </p>
 
-                          <div className="d-grid">
-                            <a
-                              href={course.externalLink}
-                              className="btn"
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              style={{
-                                background: 'linear-gradient(45deg, #3498db, #2980b9)',
-                                color: 'white',
-                                borderRadius: '25px',
-                                fontWeight: '600',
-                                padding: '12px 24px',
-                                transition: 'all 0.3s ease',
-                                border: 'none',
-                                fontSize: '1rem',
-                                boxShadow: '0 4px 15px rgba(52,152,219,0.3)'
-                              }}
-                              onMouseEnter={(e) => {
-                                e.target.style.transform = 'translateY(-2px)';
-                                e.target.style.boxShadow = '0 8px 25px rgba(52,152,219,0.4)';
-                              }}
-                              onMouseLeave={(e) => {
-                                e.target.style.transform = 'translateY(0)';
-                                e.target.style.boxShadow = '0 4px 15px rgba(52,152,219,0.3)';
-                              }}
-                            >
-                              <i className="bi bi-box-arrow-up-right me-2"></i>
-                              Enroll Now
-                            </a>
+                            <div className="row text-center mb-3">
+                              <div className="col-4">
+                                <small style={{ color: ColorPalette.secondaryText, fontWeight: '600' }}>
+                                  <i className="bi bi-clock me-1"></i>
+                                  {course.duration}
+                                </small>
+                              </div>
+                              <div className="col-4">
+                                {course.price && (
+                                  <small className={`fw-bold ${course.price === 'Free' || course.price === 'Discounted' ? 'text-success' : 'text-warning'}`}>
+                                    {course.price}
+                                  </small>
+                                )}
+                              </div>
+                              <div className="col-4">
+                                <small style={{ color: ColorPalette.secondaryText, fontWeight: '600' }}>
+                                  <i className="bi bi-mortarboard me-1"></i>
+                                  {course.level}
+                                </small>
+                              </div>
+                            </div>
+
+                            <div style={{ flexGrow: 1 }}></div>
+
+                            <div className="d-grid">
+                              <a
+                                href={course.externalLink}
+                                className="btn"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  background: ColorPalette.blueGradient,
+                                  color: ColorPalette.lightText,
+                                  borderRadius: '25px',
+                                  fontWeight: '600',
+                                  padding: '12px 24px',
+                                  transition: 'all 0.3s ease',
+                                  border: 'none',
+                                  fontSize: '1rem',
+                                  boxShadow: `0 4px 15px ${ColorPalette.blueShadow}`
+                                }}
+                                onMouseEnter={(e) => {
+                                  e.target.style.transform = 'translateY(-2px)';
+                                  e.target.style.boxShadow = `0 8px 25px ${ColorPalette.blueShadow}`;
+                                  e.target.style.background = ColorPalette.secondaryBlue;
+                                }}
+                                onMouseLeave={(e) => {
+                                  e.target.style.transform = 'translateY(0)';
+                                  e.target.style.boxShadow = `0 4px 15px ${ColorPalette.blueShadow}`;
+                                  e.target.style.background = ColorPalette.blueGradient;
+                                }}
+                              >
+                                <i className="bi bi-box-arrow-up-right me-2"></i>
+                                Enroll Now
+                              </a>
+                            </div>
                           </div>
                         </div>
                       </div>
-                    </div>
-                  ))}
+                    ))}
+                  </div>
+                </div>
+                
+                {/* Add visual indicator after the scrollable area on mobile */}
+                <div className="d-md-none text-center mt-2">
+                  <small style={{ color: ColorPalette.primaryText, opacity: 0.6, fontStyle: 'italic' }}>
+                    Scroll to see more courses
+                  </small>
                 </div>
               </div>
             ) : (
@@ -664,8 +797,8 @@ const FullCourses = () => {
           <div className="row">
             <div className="col-12">
               <h3 className="mb-4" style={{
-                color: '#2c3e50',
-                borderBottom: '3px solid #e74c3c',
+                color: ColorPalette.primaryText,
+                borderBottom: `3px solid ${ColorPalette.accentBeige}`,
                 paddingBottom: '10px',
                 fontWeight: '700',
                 fontSize: '1.8rem'
@@ -697,8 +830,8 @@ const FullCourses = () => {
                               background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
                               borderRadius: '20px',
                               padding: '25px',
-                              boxShadow: '0 8px 30px rgba(52,152,219,0.15)',
-                              border: '1px solid rgba(52,152,219,0.1)',
+                              boxShadow: `0 8px 30px ${ColorPalette.blueShadow}`,
+                              border: `1px solid ${ColorPalette.accentBorder}`,
                               position: 'relative',
                               minHeight: '180px',
                               display: 'flex',
@@ -709,13 +842,13 @@ const FullCourses = () => {
                                 top: '-8px',
                                 right: '20px',
                                 fontSize: '40px',
-                                color: '#3498db',
+                                color: ColorPalette.secondaryBlue,
                                 fontFamily: 'Georgia, serif'
                               }}>
-                                “
+                                "
                               </div>
                               <p style={{
-                                color: '#2c3e50',
+                                color: ColorPalette.primaryText,
                                 fontSize: '14px',
                                 lineHeight: '1.6',
                                 margin: '15px 0',
@@ -732,11 +865,11 @@ const FullCourses = () => {
                                 alignItems: 'center',
                                 marginTop: 'auto',
                                 paddingTop: '15px',
-                                borderTop: '1px solid rgba(52,152,219,0.1)'
+                                borderTop: `1px solid ${ColorPalette.accentBorder}`
                               }}>
                                 <div>
                                   <h6 style={{
-                                    color: '#3498db',
+                                    color: ColorPalette.secondaryBlue,
                                     fontSize: '14px',
                                     fontWeight: '600',
                                     margin: '0',
@@ -751,7 +884,7 @@ const FullCourses = () => {
                                 }}>
                                   {[...Array(5)].map((_, i) => (
                                     <span key={i} style={{
-                                      color: '#ffd700',
+                                      color: ColorPalette.accentBeige,
                                       fontSize: '14px'
                                     }}>
                                       ★
@@ -799,8 +932,8 @@ const FullCourses = () => {
                               background: 'linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%)',
                               borderRadius: '20px',
                               padding: '25px',
-                              boxShadow: '0 8px 30px rgba(52,152,219,0.15)',
-                              border: '1px solid rgba(52,152,219,0.1)',
+                              boxShadow: `0 8px 30px ${ColorPalette.blueShadow}`,
+                              border: `1px solid ${ColorPalette.accentBorder}`,
                               position: 'relative',
                               minHeight: '200px',
                               display: 'flex',
@@ -810,11 +943,11 @@ const FullCourses = () => {
                             }}
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.transform = 'translateY(-8px)';
-                                e.currentTarget.style.boxShadow = '0 15px 45px rgba(52,152,219,0.25)';
+                                e.currentTarget.style.boxShadow = `0 15px 45px ${ColorPalette.blueShadow}`;
                               }}
                               onMouseLeave={(e) => {
                                 e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.boxShadow = '0 8px 30px rgba(52,152,219,0.15)';
+                                e.currentTarget.style.boxShadow = `0 8px 30px ${ColorPalette.blueShadow}`;
                               }}
                             >
                               <div style={{
@@ -822,13 +955,13 @@ const FullCourses = () => {
                                 top: '-8px',
                                 right: '20px',
                                 fontSize: '50px',
-                                color: '#3498db',
+                                color: ColorPalette.secondaryBlue,
                                 fontFamily: 'Georgia, serif'
                               }}>
-                                “
+                                "
                               </div>
                               <p style={{
-                                color: '#2c3e50',
+                                color: ColorPalette.primaryText,
                                 fontSize: '15px',
                                 lineHeight: '1.7',
                                 margin: '20px 0',
@@ -845,11 +978,11 @@ const FullCourses = () => {
                                 alignItems: 'center',
                                 marginTop: 'auto',
                                 paddingTop: '20px',
-                                borderTop: '1px solid rgba(52,152,219,0.1)'
+                                borderTop: `1px solid ${ColorPalette.accentBorder}`
                               }}>
                                 <div>
                                   <h6 style={{
-                                    color: '#3498db',
+                                    color: ColorPalette.secondaryBlue,
                                     fontSize: '16px',
                                     fontWeight: '600',
                                     margin: '0',
@@ -864,7 +997,7 @@ const FullCourses = () => {
                                 }}>
                                   {[...Array(5)].map((_, i) => (
                                     <span key={i} style={{
-                                      color: '#ffd700',
+                                      color: ColorPalette.accentBeige,
                                       fontSize: '16px'
                                     }}>
                                       ★
@@ -878,18 +1011,18 @@ const FullCourses = () => {
                               background: 'rgba(255, 255, 255, 0.95)',
                               backdropFilter: 'blur(10px)',
                               borderRadius: '15px',
-                              border: '1px solid rgba(52,152,219,0.2)',
-                              color: '#2c3e50',
+                              border: `1px solid ${ColorPalette.accentBorder}`,
+                              color: ColorPalette.primaryText,
                               transition: 'all 0.3s ease',
-                              boxShadow: '0 8px 25px rgba(0,0,0,0.1)'
+                              boxShadow: `0 8px 25px ${ColorPalette.blueShadow}`
                             }}
                               onMouseEnter={(e) => {
                                 e.currentTarget.style.transform = 'translateY(-5px)';
-                                e.currentTarget.style.boxShadow = '0 15px 40px rgba(52,152,219,0.2)';
+                                e.currentTarget.style.boxShadow = `0 15px 40px ${ColorPalette.blueShadow}`;
                               }}
                               onMouseLeave={(e) => {
                                 e.currentTarget.style.transform = 'translateY(0)';
-                                e.currentTarget.style.boxShadow = '0 8px 25px rgba(0,0,0,0.1)';
+                                e.currentTarget.style.boxShadow = `0 8px 25px ${ColorPalette.blueShadow}`;
                               }}
                             >
                               <div className="card-body p-3">
@@ -917,23 +1050,25 @@ const FullCourses = () => {
                           onClick={toggleFeedback}
                           className="btn"
                           style={{
-                            background: 'linear-gradient(45deg, #3498db, #2980b9)',
-                            color: 'white',
+                            background: ColorPalette.blueGradient,
+                            color: ColorPalette.lightText,
                             borderRadius: '25px',
                             fontWeight: '600',
                             padding: '12px 30px',
                             transition: 'all 0.3s ease',
                             border: 'none',
                             fontSize: '1rem',
-                            boxShadow: '0 4px 15px rgba(52,152,219,0.3)'
+                            boxShadow: `0 4px 15px ${ColorPalette.blueShadow}`
                           }}
                           onMouseEnter={(e) => {
                             e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.boxShadow = '0 8px 25px rgba(52,152,219,0.4)';
+                            e.target.style.boxShadow = `0 8px 25px ${ColorPalette.blueShadow}`;
+                            e.target.style.background = ColorPalette.secondaryBlue;
                           }}
                           onMouseLeave={(e) => {
                             e.target.style.transform = 'translateY(0)';
-                            e.target.style.boxShadow = '0 4px 15px rgba(52,152,219,0.3)';
+                            e.target.style.boxShadow = `0 4px 15px ${ColorPalette.blueShadow}`;
+                            e.target.style.background = ColorPalette.blueGradient;
                           }}
                         >
                           {isShowingAll ? (
@@ -957,11 +1092,11 @@ const FullCourses = () => {
                   <div className="row g-3">
                     <div className="col-md-4">
                       <div className="card h-100" style={{
-                        background: 'rgba(255, 255, 255, 0.03)',
+                        background: `linear-gradient(135deg, ${ColorPalette.lightBlueBackground} 0%, ${ColorPalette.offWhite} 100%)`,
                         backdropFilter: 'blur(10px)',
                         borderRadius: '15px',
-                        border: '2px dashed rgba(255, 255, 255, 0.3)',
-                        color: '#FFFFFF',
+                        border: `2px dashed ${ColorPalette.accentBorder}`,
+                        color: ColorPalette.primaryText,
                         minHeight: '200px'
                       }}>
                         <div className="card-body d-flex flex-column justify-content-center align-items-center">
@@ -973,11 +1108,11 @@ const FullCourses = () => {
                     </div>
                     <div className="col-md-4">
                       <div className="card h-100" style={{
-                        background: 'rgba(255, 255, 255, 0.03)',
+                        background: `linear-gradient(135deg, ${ColorPalette.lightBlueBackground} 0%, ${ColorPalette.offWhite} 100%)`,
                         backdropFilter: 'blur(10px)',
                         borderRadius: '15px',
-                        border: '2px dashed rgba(255, 255, 255, 0.3)',
-                        color: '#FFFFFF',
+                        border: `2px dashed ${ColorPalette.accentBorder}`,
+                        color: ColorPalette.primaryText,
                         minHeight: '200px'
                       }}>
                         <div className="card-body d-flex flex-column justify-content-center align-items-center">
@@ -989,11 +1124,11 @@ const FullCourses = () => {
                     </div>
                     <div className="col-md-4">
                       <div className="card h-100" style={{
-                        background: 'rgba(255, 255, 255, 0.03)',
+                        background: `linear-gradient(135deg, ${ColorPalette.lightBlueBackground} 0%, ${ColorPalette.offWhite} 100%)`,
                         backdropFilter: 'blur(10px)',
                         borderRadius: '15px',
-                        border: '2px dashed rgba(255, 255, 255, 0.3)',
-                        color: '#FFFFFF',
+                        border: `2px dashed ${ColorPalette.accentBorder}`,
+                        color: ColorPalette.primaryText,
                         minHeight: '200px'
                       }}>
                         <div className="card-body d-flex flex-column justify-content-center align-items-center">
